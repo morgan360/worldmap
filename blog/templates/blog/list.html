@@ -1,0 +1,39 @@
+{% extends "base.html" %}{% load i18n static  %}
+<!-- Assuming you have an overridable 'content' block in your master.html, otherwise leave this out-->
+{% block content %}
+
+<!-- Bootstrap container -->
+<div class="container">
+    <div class="blog__container">
+        <ul class="blog__list">
+            {% for post in blog_posts %}
+                <li class="blog__item">
+                    <div class="blog__inner">
+                        {% if post.image %}
+                            <div class="blog__image" style="background-image: url({{ post.image.url }})"></div>
+                        {% endif %}
+                        <div class="blog__info">
+                            <a href="{{ post.get_absolute_url }}" class="blog__title">{{ post.title }}</a>
+                            <p class="blog__description">{{ post.description }}</p>
+                            <p class="blog__footer">{{ post.pub_date|date }}</p>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if is_paginated %}
+        <div class="blog__pagination">
+            {% if page_obj.has_previous %}
+                <a href="{% url 'blog:list' %}?page={{ page_obj.previous_page_number }}"><<</a>
+            {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+            {% if page_obj.has_next %}
+                <a href="{% url 'blog:list' %}?page={{ page_obj.next_page_number }}">>></a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

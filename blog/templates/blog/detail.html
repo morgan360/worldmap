@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <article class="blog__container">
+                    <section class="blog__header">
+                        <h3 class="blog__title display-4">{{ blog_post.title }}</h3>
+                        <p class="blog__footer">
+                            {{ blog_post.pub_date|date }}
+                        </p>
+                    </section>
+                    <section class="blog__text">
+                        <!-- Add the image here -->
+                        <img src="{{ blog_post.image.url }}" alt="{{ blog_post.title }}" class="img-fluid mb-4">
+
+                        {{ blog_post.text|safe }}
+                    </section>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
