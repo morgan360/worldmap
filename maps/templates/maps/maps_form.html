@@ -1,0 +1,29 @@
+{% extends 'maps/base.html' %}
+
+{% block content %}
+<div class="header-bar">
+    <a href="{% url 'maps' %}" class="btn btn-secondary">&#8592; Map</a>
+</div>
+
+<div class="card-body">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.latitude.label_tag }} <!-- Label for the 'lat' field -->
+                        {{ form.latitude }} <!-- Input widget for the 'lat' field -->
+                    </div>
+                    <div class="mb-3">
+                        {{ form.longitude.label_tag }} <!-- Label for the 'lon' field -->
+                        {{ form.longitude }} <!-- Input widget for the 'lon' field -->
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
