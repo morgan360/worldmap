@@ -20,12 +20,14 @@ def coordinates_form(request):
     return render(request, 'maps/maps_form.html', context)
 
 def maps(request):
-    coordinates_list = Coordinates.objects.values_list('latitude', 'longitude')
+    coordinates_list = Coordinates.objects.values_list('latitude', 'longitude', 'additional_info')
 
     map = folium.Map(location=[0, 0], zoom_start=2)
 
-    for latitude, longitude in coordinates_list:  # Corrected spelling
-        folium.Marker([latitude, longitude]).add_to(map)
+    for latitude, longitude, additional_info in coordinates_list:
+        popup_content = f"Latitude: {latitude}-Longitude: {longitude}-Additional Text Here: {additional_info}"
+        popup = folium.Popup(popup_content, parse_html=True)
+        folium.Marker([latitude, longitude], popup=popup).add_to(map)
 
     folium.raster_layers.TileLayer('Stamen Terrain').add_to(map)
     folium.raster_layers.TileLayer('Stamen Toner').add_to(map)
@@ -37,6 +39,7 @@ def maps(request):
         'map': map,
     }
     return render(request, 'maps/maps.html', context)
+
 
 
 def delete_coordinates(request):

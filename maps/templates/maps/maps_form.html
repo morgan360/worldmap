@@ -12,12 +12,16 @@
                 <form method="POST" action="">
                     {% csrf_token %}
                     <div class="mb-3">
-                        {{ form.latitude.label_tag }} <!-- Label for the 'lat' field -->
-                        {{ form.latitude }} <!-- Input widget for the 'lat' field -->
+                        {{ form.latitude.label_tag }} <!-- Label for the 'latitude' field -->
+                        {{ form.latitude }} <!-- Input widget for the 'latitude' field -->
                     </div>
                     <div class="mb-3">
-                        {{ form.longitude.label_tag }} <!-- Label for the 'lon' field -->
-                        {{ form.longitude }} <!-- Input widget for the 'lon' field -->
+                        {{ form.longitude.label_tag }} <!-- Label for the 'longitude' field -->
+                        {{ form.longitude }} <!-- Input widget for the 'longitude' field -->
+                    </div>
+                    <div class="mb-3">
+                        {{ form.additional_info.label_tag }} <!-- Label for the 'additional_info' field -->
+                        {{ form.additional_info }} <!-- Input widget for the 'additional_info' field -->
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -26,4 +30,3 @@
     </div>
 </div>
 {% endblock %}
-
