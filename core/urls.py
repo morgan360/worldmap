@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('accounts/', include('allauth.urls')),  # Add this line
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
