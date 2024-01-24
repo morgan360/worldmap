@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('accounts/', include('allauth.urls')),  # Add this line
+    path('users/', include('users.urls')),
 ]
 
 if settings.DEBUG:

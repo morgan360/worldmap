@@ -1,0 +1,39 @@
+{% load static %}
+
+<nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            
+            <!-- Left side - Logo and Navigation Links -->
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <img src="{% static 'img/logo2.png' %}" alt="Logo" class="block lg:hidden h-12 w-auto">
+                    <img src="{% static 'img/logo2.png' %}" alt="Logo" class="hidden lg:block h-12 w-auto">
+                </div>
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <!-- Other navigation links -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side - Authentication Links -->
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                {% if user.is_authenticated %}
+                    <span class="text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Hi! {{ user }}</span>
+                    {% if user.is_superuser %}
+                        <a href="/admin/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                    {% endif %}
+                     <a href="{% url 'view_profile' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white
+                     px-3 py-2 rounded-md text-sm font-medium">View Profile</a>
+                    <a href="{% url 'update_profile' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Update Profile</a>
+                    <a href="{% url 'account_logout' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</a>
+                {% else %}
+                    <a href="{% url 'account_login' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                    <a href="{% url 'account_signup' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

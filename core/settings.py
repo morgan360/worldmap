@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from django.contrib.messages import constants as message_constants
 from pathlib import Path
 import os
 
@@ -44,11 +44,15 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # 'pillow',
     # My Apps
     'home',
     'blog',
     'users',
     'maps',
+    'crispy_forms',
+    "crispy_tailwind",
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -120,6 +125,11 @@ USE_I18N = True
 
 USE_TZ = True
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -143,7 +153,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # AUTHENTICATION_BACKENDS = [
 #     # ...
@@ -172,8 +181,6 @@ ACCOUNT_USERNAME_REQUIRED = False
 # #
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-
-
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -207,4 +214,19 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERSION': 'v13.0',
         'GRAPH_API_URL': 'https://graph.facebook.com/v13.0',
     }
+}
+
+ACCOUNT_FORMS = {
+    'signup': 'users.forms.CouponSignupForm'
+}
+
+
+
+# Style all messages
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'alert-info',
+    message_constants.INFO: 'alert-info',
+    message_constants.SUCCESS: 'alert-success',
+    message_constants.WARNING: 'alert-warning',
+    message_constants.ERROR: 'alert-error',
 }

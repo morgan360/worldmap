@@ -1,6 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+from .models import CustomUser, Coupon, UserProfile
+from django import forms
+
+
+class CouponForm(forms.ModelForm):
+    class Meta:
+        model = Coupon
+        fields = '__all__'
 
 
 @admin.register(CustomUser)
@@ -22,3 +29,21 @@ class CustomUserAdmin(UserAdmin):
 
     ordering = ['email']
 
+
+@admin.register(Coupon)
+class CouponAdmin(admin.ModelAdmin):
+    form = CouponForm
+    list_display = ('code', 'is_valid', 'created_at', 'expires_at')
+    list_filter = ('is_valid', 'created_at', 'expires_at')
+    search_fields = ('code',)
+    date_hierarchy = 'created_at'
+    ordering = ('-created_at',)
+
+    # You can add custom validations or widgets here if needed
+
+
+# Register your models here.
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'bio', 'avatar')  # Customize as needed
+    search_fields = ('user__email', 'user__first_name', 'user__last_name')

@@ -1,0 +1,41 @@
+{% extends '_base.html' %} {% load static %} {% block content %}
+<div class="container mx-auto px-4 w-1/2">
+  <div
+    class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 mt-6"
+  >
+    <!-- Profile Card -->
+    <div class="flex-1 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="text-center">
+        <div class="mt-4">
+          <h1 class="text-xl font-bold">{{ user.first_name }}'s Profile</h1>
+          <img
+            class="h-24 w-24 rounded-full mx-auto m-6"
+            src="{{ user.profile.avatar.url }}"
+            alt="Avatar"
+          />
+        </div>
+        <div class="information mt-4 text-left p-2">
+          <div class="flex items-center  p-2">
+            <label class="font-bold mr-2 ">Name:</label>
+            <p>{{ user }}</p>
+          </div>
+          <div class="flex items-center mb-2 p-2">
+            <label class="font-bold mr-2">Bio:</label>
+            <textarea
+              class="border-2 border-gray-300 rounded-lg p-1 w-full"
+              readonly
+            >
+{{ user.profile.bio }}</textarea
+            >
+          </div>
+          <div class="flex items-center mb-2">
+            <label class="font-bold mr-2">Email:</label>
+            <p>{{ user.email }}</p>
+          </div>
+          <!-- Other fields -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
