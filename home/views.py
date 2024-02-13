@@ -25,4 +25,5 @@ def feedback_view(request):
     return render(request, 'feedback.html', {'form': form})
 
 
-
+def about(request):
+    return render(request, 'about.html')

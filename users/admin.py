@@ -1,17 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, Coupon, UserProfile
 from django import forms
+from .models import CustomUser, Coupon, UserProfile
 
-
-class CouponForm(forms.ModelForm):
-    class Meta:
-        model = Coupon
-        fields = '__all__'
-
-
-@admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
+    model = CustomUser
     list_display = ['email', 'first_name', 'last_name', 'is_active', 'is_staff']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -19,18 +12,20 @@ class CustomUserAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         ('Important dates', {'fields': ('last_login',)}),
     )
-
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2'),
+            'fields': ('email', 'password1', 'password2', 'first_name', 'last_name'),
         }),
     )
-
+    search_fields = ('email', 'first_name', 'last_name')
     ordering = ['email']
 
+class CouponForm(forms.ModelForm):
+    class Meta:
+        model = Coupon
+        fields = '__all__'
 
-@admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
     form = CouponForm
     list_display = ('code', 'is_valid', 'created_at', 'expires_at')
@@ -39,11 +34,17 @@ class CouponAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
     ordering = ('-created_at',)
 
-    # You can add custom validations or widgets here if needed
+class UserProfileInline(admin.StackedInline):
+    model = UserProfile
+    can_delete = False
+    verbose_name_plural = 'UserProfile'
+    fk_name = 'user'
 
-
-# Register your models here.
-@admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'bio', 'avatar')  # Customize as needed
+    list_display = ('user', 'bio', 'avatar')
     search_fields = ('user__email', 'user__first_name', 'user__last_name')
+
+# Register the admin models
+admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Coupon, CouponAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)

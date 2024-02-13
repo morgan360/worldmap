@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}OnlyWorlds | Home{% endblock %}
+
+{% block content %}
+    <div class="flex items-center justify-center h-screen w-full">
+        <div>
+            <h1 class='text-center text-5xl font-bold leading-tight text-white font-serif'>An Introduction to
+                OnlyWorlds</h1>
+            <p class='text-2xl text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1 pl-24'>
+                OnlyWorlds is a game developer’s approach to world building.
+            </p>
+           <ol class='list-decimal text-2xl text-gray-300 text-justify pl-20'>
+                <li>Finding a data framework that supports any type of (non) fictional world setting.</li>
+                <li>Having this framework support as broad a range of simulation capabilities as possible.</li>
+            </ol>
+            <p class='text-2xl text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1'>
+                Major steps along the way include an open source Unity World Engine and a master thesis project that
+                investigated the translation of political power dynamics into a general playful data framework.
+                OnlyWorlds is now in closed alpha with two applications available for testing: a mobile app developed in
+                Flutter, and a desktop wrapper for Unity. Initial focus is on validating, expanding, and refining its
+                data structures.
+                If you are interested in contributing to this development, please feel free to leave your email and a
+                message here.
+            </p>
+        </div>
+    </div>
+{% endblock %}

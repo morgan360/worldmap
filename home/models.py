@@ -9,4 +9,4 @@ class Feedback(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        return f"Feedback by {self.user.username}"
+        return f"Feedback by {self.user.email}"
