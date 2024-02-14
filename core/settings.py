@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "bootstrap5",
-    'django_bootstrap_icons',
     'ckeditor',
     'allauth',
     'allauth.account',
@@ -53,6 +51,8 @@ INSTALLED_APPS = [
     'maps',
     'worlds',
     'api',
+    "django_browser_reload",
+    'import_export',
     'crispy_forms',
     "crispy_tailwind",
     'widget_tweaks',
@@ -66,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'core.urls'

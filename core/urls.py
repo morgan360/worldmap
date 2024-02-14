@@ -27,6 +27,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # Add this line
     path('users/', include('users.urls')),
     path('api/', include('api.urls')),
+    path('worlds/', include('worlds.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),  # Browser
 ]
 
 if settings.DEBUG:

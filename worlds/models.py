@@ -2,12 +2,11 @@ from django.db import models
 
 # Create your models here.
 class Location(models.Model):
-    id = models.CharField(max_length=255, primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     supertype = models.CharField(max_length=255, blank=True, null=True)
     subtype = models.CharField(max_length=255, blank=True, null=True)
-    creation_time_stamp = models.IntegerField()
+    creation_time_stamp = models.IntegerField(null=True, blank=True)
     image_url = models.TextField(blank=True, null=True)
 
 
@@ -15,7 +14,6 @@ class Location(models.Model):
         return self.name
 
 class Character(models.Model):
-    id = models.CharField(max_length=255, primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     supertype = models.CharField(max_length=255, blank=True, null=True)

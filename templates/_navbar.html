@@ -3,41 +3,48 @@
 <nav class="bg-gray-800">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            
+
             <!-- Left side - Logo and Navigation Links -->
             <div class="flex items-center">
                 <div class="flex-shrink-0"><a href="/">
                     <img src="{% static 'img/OW logo_v01_Blue.png' %}" alt="Logo" class="block lg:hidden h-12 w-auto">
                     <img src="{% static 'img/OW logo_v01_Blue.png' %}" alt="Logo" class="hidden lg:block h-12 w-auto"></a>
                 </div>
-{#                <div class="hidden sm:block sm:ml-6">#}
-{#                    <div class="flex space-x-4">#}
-{#                        <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>#}
-{#                        <!-- Other navigation links -->#}
-{#                    </div>#}
-{#                </div>#}
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
-                       <a href="/about/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="/about/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
                         <!-- Other navigation links -->
                     </div>
                 </div>
             </div>
 
             <!-- Right side - Authentication Links -->
-            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div x-data="{ open: false }" class="relative inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {% if user.is_authenticated %}
                     <span class="text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Hi! {{ user }}</span>
-                    {% if user.is_superuser %}
-                        <a href="/admin/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Admin</a>
-                    {% endif %}
-                     <a href="{% url 'view_profile' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white
-                     px-3 py-2 rounded-md text-sm font-medium">View Profile</a>
-                    <a href="{% url 'update_profile' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Update Profile</a>
+                    <!-- Dropdown toggle button placed before Logout for better alignment -->
+                    <div class="relative ml-3">
+                        <button @click="open = !open" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
+                            Menu
+                        </button>
+                        <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" style="display: none;" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div class="py-1" role="none">
+                                <a href="{% url 'upload_json' %}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem">Upload JSON</a>
+                                {% if user.is_superuser %}
+                                    <a href="/admin/" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem">Admin</a>
+                                {% endif %}
+                                <a href="{% url 'list_locations' %}" class="text-gray-700 block px-4 py-2 text-sm"
+                                   role="menuitem">List Locations</a>
+                                <a href="{% url 'create_location' %}" class="text-gray-700 block px-4 py-2 text-sm"
+                                   role="menuitem">Create Location</a>
+                                <a href="{% url 'view_profile' %}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem">View Profile</a>
+                                <a href="{% url 'update_profile' %}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem">Update Profile</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="{% url 'account_logout' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</a>
                 {% else %}
                     <a href="{% url 'account_login' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-{#                    <a href="{% url 'account_signup' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register</a>#}
                 {% endif %}
             </div>
         </div>

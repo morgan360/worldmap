@@ -1,20 +1,25 @@
 {% extends '_base.html' %}
 {% load static %}
 {% block title %}OnlyWorlds | Home{% endblock %}
-
+{#<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>#}
 {% block content %}
-    <div class="flex items-center justify-center h-screen w-full">
-        <div>
-            <h1 class='text-center text-5xl font-bold leading-tight text-white font-serif'>An Introduction to
-                OnlyWorlds</h1>
-            <p class='text-2xl text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1 pl-24'>
+
+    <div class="flex flex-col items-center justify-start min-h-screen w-full pt-16">
+        <div class="text-center">
+            <h1 class="text-white" x-data="{ message: 'I ❤️ onlyWorlds' }" x-text="message"></h1>
+            <h1 class="text-5xl font-bold leading-tight text-white font-serif mb-6">An Introduction to OnlyWorlds</h1>
+            <p class="text-lg text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1">
                 OnlyWorlds is a game developer’s approach to world building.
             </p>
-           <ol class='list-decimal text-2xl text-gray-300 text-justify pl-20'>
-                <li>Finding a data framework that supports any type of (non) fictional world setting.</li>
-                <li>Having this framework support as broad a range of simulation capabilities as possible.</li>
+            <ol class="list-decimal text-lg text-gray-300 text-justify pl-10 lg:pl-20 py-4">
+                <li class="ml-4 lg:ml-8">Finding a data framework that supports any type of (non) fictional world
+                    setting.
+                </li>
+                <li class="ml-4 lg:ml-8">Having this framework support as broad a range of simulation capabilities as
+                    possible.
+                </li>
             </ol>
-            <p class='text-2xl text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1'>
+            <p class="text-lg text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1">
                 Major steps along the way include an open source Unity World Engine and a master thesis project that
                 investigated the translation of political power dynamics into a general playful data framework.
                 OnlyWorlds is now in closed alpha with two applications available for testing: a mobile app developed in
@@ -23,6 +28,48 @@
                 If you are interested in contributing to this development, please feel free to leave your email and a
                 message here.
             </p>
+
+        </div>
+        {# My Modal#}
+        <div x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false">
+            <div
+                    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
+                    role="dialog"
+                    tabindex="-1"
+                    x-show="isModalOpen"
+                    x-on:click.away="isModalOpen = false"
+                    x-cloak
+                    x-transition:enter="ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="ease-in duration-200"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+            >
+                <div class="model-inner bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-md">
+                    <div class="modal-header flex justify-between items-center p-4 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold">Contact Us</h3>
+                        <button aria-label="Close" x-on:click="isModalOpen=false"
+                                class="text-gray-700 hover:text-gray-900">
+                            ✖
+                        </button>
+                    </div>
+                    <p class="p-4">
+                        Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                        dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                        accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                        dolores. Quo accusamus hic atque nisi minima.
+                    </p>
+                </div>
+            </div>
+            <button x-on:click="isModalOpen = true"
+                    class="mt-10 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                Contact Us
+            </button>
+        </div>
+        <div x-data="{ isOpen: false }">
+            <button @click="isOpen = true">Open Modal</button>
         </div>
     </div>
 {% endblock %}
