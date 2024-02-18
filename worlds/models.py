@@ -8,7 +8,6 @@ class BaseModel(models.Model):
     description = models.TextField(blank=True, null=True)
     supertype = models.CharField(max_length=255, blank=True, null=True)
     subtype = models.CharField(max_length=255, blank=True, null=True)
-    creation_time_stamp = models.DateTimeField(default=timezone.now)
     image_url = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -23,7 +22,7 @@ class Character(BaseModel):
     weight = models.IntegerField(blank=True, null=True)
     gender = models.CharField(max_length=255, blank=True, null=True)
     physicality = models.TextField(blank=True, null=True)
-    # species = models.ForeignKey('Species', on_delete=models.CASCADE, blank=True, null=True)
+    species = models.ForeignKey('Species', on_delete=models.CASCADE, blank=True, null=True)
     traits = models.TextField(blank=True, null=True)
     languages = models.TextField(blank=True, null=True)
     abilities = models.TextField(blank=True, null=True)
@@ -47,7 +46,7 @@ class Character(BaseModel):
     rivals = models.TextField(blank=True, null=True)
     relations = models.TextField(blank=True, null=True)
     hit_points = models.IntegerField(blank=True, null=True)
-    # class_field = models.CharField(db_column='class', max_length=255, blank=True, null=True)  # 'class' is a reserved word in Python, hence the use of db_column to specify the actual database field.
+    class_field = models.CharField(db_column='class', max_length=255, blank=True, null=True)  # 'class' is a reserved word in Python, hence the use of db_column to specify the actual database field.
     alignment = models.TextField(blank=True, null=True)
     inspirations = models.TextField(blank=True, null=True)
     tt_str = models.IntegerField(blank=True, null=True)
@@ -63,7 +62,7 @@ class Character(BaseModel):
     features = models.TextField(blank=True, null=True)
     spells = models.TextField(blank=True, null=True)
     birthplace = models.ForeignKey('Location', related_name='+', on_delete=models.SET_NULL, blank=True, null=True)
-    # objects = models.TextField(blank=True, null=True)
+    objects = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -210,10 +209,11 @@ class Creature(BaseModel):
     weight = models.IntegerField(blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
     abilities = models.TextField(blank=True, null=True)
+    bearing = models.TextField(blank=True, null=True)
     demeanour = models.TextField(blank=True, null=True)
     life_style = models.TextField(blank=True, null=True)
+    location = models.ForeignKey('Location', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
     territory = models.ForeignKey('Territory', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
-
     def __str__(self):
         return self.name
 
@@ -348,6 +348,61 @@ class Event(BaseModel):
 
 class Construct(BaseModel):
     origin = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class World(models.Model):
+    id = models.TextField(primary_key=True)
+    ow_version = models.TextField()
+    name = models.TextField()
+    description = models.TextField()
+    user_id = models.TextField()
+    version = models.TextField()
+    image_url = models.TextField()
+    api_key = models.TextField()
+    world_time_state = models.TextField()
+    ability_string = models.TextField()
+    character_string = models.TextField()
+    collective_string = models.TextField()
+    construct_string = models.TextField()
+    creature_string = models.TextField()
+    event_string = models.TextField()
+    family_string = models.TextField()
+    force_string = models.TextField()
+    institution_string = models.TextField()
+    language_string = models.TextField()
+    law_string = models.TextField()
+    location_string = models.TextField()
+    map_string = models.TextField()
+    object_string = models.TextField()
+    pin_string = models.TextField()
+    species_string = models.TextField()
+    relation_string = models.TextField()
+    territory_string = models.TextField()
+    title_string = models.TextField()
+    trait_string = models.TextField()
+    family_grouping = models.TextField()
+    ability_grouping = models.TextField()
+    character_grouping = models.TextField()
+    collective_grouping = models.TextField()
+    construct_grouping = models.TextField()
+    creature_grouping = models.TextField()
+    event_grouping = models.TextField()
+    force_grouping = models.TextField()
+    institution_grouping = models.TextField()
+    language_grouping = models.TextField()
+    law_grouping = models.TextField()
+    location_grouping = models.TextField()
+    map_grouping = models.TextField()
+    object_grouping = models.TextField()
+    pin_grouping = models.TextField()
+    species_grouping = models.TextField()
+    relation_grouping = models.TextField()
+    territory_grouping = models.TextField()
+    title_grouping = models.TextField()
+    trait_grouping = models.TextField()
+    focus_text = models.TextField()
 
     def __str__(self):
         return self.name
