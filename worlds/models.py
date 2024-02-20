@@ -164,7 +164,7 @@ class Institution(BaseModel):
                                            related_name='child_institutions')
     primary_object = models.ForeignKey('Object', on_delete=models.SET_NULL, blank=True, null=True,
                                        related_name='owned_institutions')
-    god = models.ForeignKey('Force', on_delete=models.SET_NULL, blank=True, null=True)
+    god = models.ForeignKey('Phenomenon', on_delete=models.SET_NULL, blank=True, null=True)
     wealth = models.IntegerField(blank=True, null=True)
     background = models.TextField(blank=True, null=True)
     cooperates = models.TextField(blank=True, null=True)
@@ -172,8 +172,7 @@ class Institution(BaseModel):
     collectives = models.TextField(blank=True, null=True)
     philosophy = models.TextField(blank=True, null=True)
     child_institutions = models.TextField(blank=True,
-                                          null=True)  # Assuming this field is meant to list IDs or names, consider redesigning this relationship if it should represent a ForeignKey or ManyToManyField.
-
+                                          null=True)
     def __str__(self):
         return self.name
 
@@ -212,6 +211,7 @@ class Creature(BaseModel):
     bearing = models.TextField(blank=True, null=True)
     demeanour = models.TextField(blank=True, null=True)
     life_style = models.TextField(blank=True, null=True)
+    species = models.ForeignKey('Species', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
     location = models.ForeignKey('Location', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
     territory = models.ForeignKey('Territory', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
     def __str__(self):
@@ -250,10 +250,10 @@ class Trait(BaseModel):
     def __str__(self):
         return self.name
 
-class Force(BaseModel):
+class Phenomenon(BaseModel):
     frequency = models.IntegerField(blank=True, null=True)
     origins = models.TextField(blank=True, null=True)
-    catalyst = models.ForeignKey(Object, on_delete=models.SET_NULL, blank=True, null=True, related_name='forces')
+    catalyst = models.ForeignKey('Object', on_delete=models.SET_NULL, blank=True, null=True, related_name='phenomenons')
     manifesters = models.TextField(blank=True, null=True)
     effects = models.TextField(blank=True, null=True)
 
@@ -348,6 +348,12 @@ class Event(BaseModel):
 
 class Construct(BaseModel):
     origin = models.TextField(blank=True, null=True)
+    state = models.TextField(blank=True, null=True)
+    focus_character = models.ForeignKey('Character', on_delete=models.SET_NULL, blank=True, null=True, related_name='constructs')
+    focus_object = models.ForeignKey('Object', on_delete=models.SET_NULL, blank=True, null=True, related_name='constructs')
+    focus_location = models.ForeignKey('Location', on_delete=models.SET_NULL, blank=True, null=True, related_name='constructs')
+    focus_creature = models.ForeignKey('Creature', on_delete=models.SET_NULL, blank=True, null=True, related_name='constructs')
+    focus_institution = models.ForeignKey('Institution', on_delete=models.SET_NULL, blank=True, null=True, related_name='constructs')
 
     def __str__(self):
         return self.name
@@ -369,7 +375,7 @@ class World(models.Model):
     creature_string = models.TextField()
     event_string = models.TextField()
     family_string = models.TextField()
-    force_string = models.TextField()
+    phenomenon_string = models.TextField()
     institution_string = models.TextField()
     language_string = models.TextField()
     law_string = models.TextField()
@@ -389,7 +395,7 @@ class World(models.Model):
     construct_grouping = models.TextField()
     creature_grouping = models.TextField()
     event_grouping = models.TextField()
-    force_grouping = models.TextField()
+    phenomenon_grouping = models.TextField()
     institution_grouping = models.TextField()
     language_grouping = models.TextField()
     law_grouping = models.TextField()
