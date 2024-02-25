@@ -97,9 +97,11 @@ class Territory(BaseModel):
     condition = models.TextField(blank=True, null=True)
     locations = models.TextField(blank=True, null=True)
     history = models.TextField(blank=True, null=True)
+    sub_territories = models.TextField(blank=True, null=True)
     owner = models.ForeignKey('Institution', on_delete=models.SET_NULL, blank=True, null=True,
                               related_name='owned_territories')
-
+    parent_territory = models.ForeignKey('Territory', on_delete=models.SET_NULL, blank=True, null=True,
+                              related_name='child_territories')
     def __str__(self):
         return self.name
 
