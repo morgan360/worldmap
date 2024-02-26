@@ -21,7 +21,7 @@ class Character(BaseModel):
     height = models.IntegerField(blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
     gender = models.CharField(max_length=255, blank=True, null=True)
-    physicality = models.TextField(blank=True, null=True)
+    physical_presence = models.TextField(blank=True, null=True)
     species = models.ForeignKey('Species', on_delete=models.CASCADE, blank=True, null=True)
     traits = models.TextField(blank=True, null=True)
     languages = models.TextField(blank=True, null=True)
@@ -66,6 +66,71 @@ class Character(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+
+class Location(models.Model):
+    id = models.TextField(primary_key=True)
+    name = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    supertype = models.ForeignKey('LocationTyping', on_delete=models.CASCADE, related_name='locations', blank=True, null=True)
+    subtype = models.TextField(blank=True, null=True)
+    institution_owner = models.ForeignKey('Institution', on_delete=models.CASCADE, related_name='owned_locations', blank=True, null=True)
+    character_owner = models.ForeignKey('Character', on_delete=models.CASCADE, related_name='owned_locations', blank=True, null=True)
+    coordinates = models.TextField(blank=True, null=True)
+    parent_location = models.ForeignKey('self', on_delete=models.CASCADE, related_name='child_locations', blank=True, null=True)
+    maps = models.TextField(blank=True, null=True)  # Consider ManyToManyField if linking directly to Map models
+    pins = models.TextField(blank=True, null=True)  # Consider ManyToManyField if linking directly to Pin models
+    image_url = models.TextField(blank=True, null=True)
+    founded_by = models.TextField(blank=True, null=True)  # Consider ForeignKey if linking directly to Character models
+    primary_faction = models.TextField(blank=True, null=True)
+    secondary_factions = models.TextField(blank=True, null=True)
+    population_size = models.IntegerField(blank=True, null=True)
+    government_description = models.TextField(blank=True, null=True)
+    hard_influence_on = models.TextField(blank=True, null=True)
+    soft_influence_on = models.TextField(blank=True, null=True)
+    rival = models.ForeignKey('self', on_delete=models.CASCADE, related_name='rival_locations', blank=True, null=True)
+    friend = models.ForeignKey('self', on_delete=models.CASCADE, related_name='friend_locations', blank=True, null=True)
+    government = models.TextField(blank=True, null=True)
+    opposition = models.TextField(blank=True, null=True)
+    regional_character = models.TextField(blank=True, null=True)
+    primary_resource = models.TextField(blank=True, null=True)
+    secondary_resources = models.TextField(blank=True, null=True)
+    primary_industry = models.TextField(blank=True, null=True)
+    secondary_industries = models.TextField(blank=True, null=True)
+    generation_rate = models.TextField(blank=True, null=True)
+    industry_rate = models.TextField(blank=True, null=True)
+    construction_rate = models.TextField(blank=True, null=True)
+    primary_generation_offload = models.TextField(blank=True, null=True)
+    primary_industry_offload = models.TextField(blank=True, null=True)
+    secondary_generation_offloads = models.TextField(blank=True, null=True)
+    secondary_industry_offloads = models.TextField(blank=True, null=True)
+    coinage = models.TextField(blank=True, null=True)
+    logistics = models.TextField(blank=True, null=True)
+    harbor = models.TextField(blank=True, null=True)
+    height = models.IntegerField(blank=True, null=True)
+    natural_defenses = models.TextField(blank=True, null=True)
+    fortifications = models.TextField(blank=True, null=True)
+    primary_fighter = models.TextField(blank=True, null=True)
+    secondary_fighters = models.TextField(blank=True, null=True)
+    primary_cult = models.TextField(blank=True, null=True)
+    secondary_cults = models.TextField(blank=True, null=True)
+    founding_date = models.IntegerField(blank=True, null=True)
+    population = models.TextField(blank=True, null=True)
+    position = models.TextField(blank=True, null=True)
+    collectives = models.TextField(blank=True, null=True)  # Consider ManyToManyField if linking directly to Collective models
+    economics = models.TextField(blank=True, null=True)
+    architecture = models.TextField(blank=True, null=True)
+    commerce = models.TextField(blank=True, null=True)
+    territory = models.TextField(blank=True, null=True)  # Consider ForeignKey if linking directly to Territory models
+    defensibility = models.TextField(blank=True, null=True)
+    culture = models.TextField(blank=True, null=True)
+    religion = models.TextField(blank=True, null=True)
+    delicacies = models.TextField(blank=True, null=True)
+    buildings = models.TextField(blank=True, null=True)  # Consider ManyToManyField if detailing specific Building models
+    building_expertise = models.TextField(blank=True, null=True)
+    places = models.TextField(blank=True, null=True)  # Consider ManyToManyField if detailing specific Place models
+
 
 
 class Object(BaseModel):
@@ -255,10 +320,10 @@ class Creature(models.Model):
     life_style = models.TextField(blank=True, null=True)
     territory = models.ForeignKey('Territory', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
     location = models.ForeignKey('Location', on_delete=models.SET_NULL, blank=True, null=True, related_name='resident_creatures')
-    behaviour = models.TextField(blank=True, null=True)
+    instincts = models.TextField(blank=True, null=True)
     species = models.ForeignKey('Species', on_delete=models.SET_NULL, blank=True, null=True, related_name='creatures')
     creatures = models.TextField(blank=True, null=True)
-    physicality = models.TextField(blank=True, null=True)
+    appearance = models.TextField(blank=True, null=True)
     lore = models.TextField(blank=True, null=True)
     senses = models.TextField(blank=True, null=True)
     hit_points = models.IntegerField(blank=True, null=True)
@@ -276,7 +341,6 @@ class Creature(models.Model):
     actions = models.TextField(blank=True, null=True)
     reactions = models.TextField(blank=True, null=True)
     alignment = models.TextField(blank=True, null=True)
-
 
 # Collective model
 class Collective(models.Model):
@@ -320,7 +384,8 @@ class Trait(models.Model):
     ability_effects = models.TextField(blank=True, null=True)
     character_carriers = models.TextField(blank=True, null=True)
     creature_carriers = models.TextField(blank=True, null=True)
-    antithesis_trait = models.ForeignKey('self', on_delete=models.SET_NULL, blank=True, null=True, related_name='antithesis_for')
+    anti_trait = models.ForeignKey('self', on_delete=models.SET_NULL, blank=True, null=True, related_name='anti_for')
+    empowered_abilities = models.TextField(blank=True, null=True)
 
 
 class Phenomenon(models.Model):
