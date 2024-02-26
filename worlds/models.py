@@ -21,7 +21,6 @@ class Character(BaseModel):
     height = models.IntegerField(blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
     gender = models.CharField(max_length=255, blank=True, null=True)
-    physical_presence = models.TextField(blank=True, null=True)
     species = models.ForeignKey('Species', on_delete=models.CASCADE, blank=True, null=True)
     traits = models.TextField(blank=True, null=True)
     languages = models.TextField(blank=True, null=True)
@@ -130,6 +129,7 @@ class Location(models.Model):
     buildings = models.TextField(blank=True, null=True)  # Consider ManyToManyField if detailing specific Building models
     building_expertise = models.TextField(blank=True, null=True)
     places = models.TextField(blank=True, null=True)  # Consider ManyToManyField if detailing specific Place models
+    governing_title = models.ForeignKey('Title', on_delete=models.SET_NULL, blank=True, null=True, related_name='governing_titles')
 
 
 
@@ -397,7 +397,7 @@ class Phenomenon(models.Model):
     image_url = models.TextField(blank=True, null=True)
     duration = models.IntegerField(blank=True, null=True)
     origins = models.TextField(blank=True, null=True)
-    catalyst = models.ForeignKey('Object', on_delete=models.SET_NULL, blank=True, null=True, related_name='phenomena')
+    catalysts =models.TextField(blank=True, null=True)
     manifesters = models.TextField(blank=True, null=True)
     effect = models.TextField(blank=True, null=True)
     intensity = models.TextField(blank=True, null=True)
@@ -405,6 +405,7 @@ class Phenomenon(models.Model):
     environments = models.TextField(blank=True, null=True)
     visibility = models.TextField(blank=True, null=True)
     scope = models.TextField(blank=True, null=True)
+    enablers = models.TextField(blank=True, null=True)
 
 
 
@@ -626,6 +627,11 @@ class World(models.Model):
     title_grouping = models.TextField(blank=True, null=True)
     trait_grouping = models.TextField(blank=True, null=True)
     focus_text = models.TextField(blank=True, null=True)
+    time_format_names = models.TextField(blank=True, null=True)
+    time_format_equivalents = models.TextField(blank=True, null=True)
+    time_default_format = models.TextField(blank=True, null=True)
+    time_current_value = models.IntegerField(blank=True, null=True)
+    time_range = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
