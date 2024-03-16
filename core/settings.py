@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     # 'pillow',
     # My Apps
     'home',
-    'blog',
+    # 'blog', #Not Used
     'users',
-    'maps',
+    # 'maps', #Not Used
     'worlds',
     'api',
     "django_browser_reload",
