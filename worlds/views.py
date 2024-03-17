@@ -107,12 +107,20 @@ def world_key_input_process(request):
     world_key = request.GET.get('worldKey')
 
     if world_key:
-        # Redirect to the detailed view with the world_key
-        detail_url = reverse('world_data_detail', kwargs={'world_key': world_key})
-        return HttpResponseRedirect(detail_url)
+        # Check if the worldKey exists in the database
+        if WorldData.objects.filter(worldKey=world_key).exists():
+            # Redirect to the detailed view with the world_key
+            detail_url = reverse('world_data_detail', kwargs={'world_key': world_key})
+            return HttpResponseRedirect(detail_url)
+        else:
+            # If worldKey does not exist, redirect back with an error message
+            messages.error(request, 'The provided world key does not exist.')
+            return redirect('world_key_input')
     else:
-        # If worldKey is not provided, redirect back to the input form or handle the error as needed
-        return HttpResponseRedirect(reverse('world_key_input'))
+        # If worldKey is not provided, redirect back to the input form
+        messages.error(request, 'No world key provided.')
+        return redirect('world_key_input')
+
 
 
 @login_required
