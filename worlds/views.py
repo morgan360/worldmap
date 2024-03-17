@@ -9,6 +9,11 @@ from django.shortcuts import render, redirect
 from .forms import LocationForm
 from django.http import HttpResponse
 from .models import Location
+from django.contrib.auth.decorators import login_required
+from api.models import WorldData
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -78,6 +83,7 @@ def create_location(request):
 
     return render(request, 'create_location.html', {'form': form})
 
+
 def edit_location(request, id):
     # Assuming 'Location' is your model and 'LocationForm' is your form
     location = get_object_or_404(Location, id=id)
@@ -90,3 +96,36 @@ def edit_location(request, id):
     else:
         form = LocationForm(instance=location)
     return render(request, 'edit_location.html', {'form': form})
+
+@login_required
+def world_key_input(request):
+    return render(request, 'world_key_input.html')
+
+
+def world_key_input_process(request):
+    # Get 'worldKey' from the query parameters
+    world_key = request.GET.get('worldKey')
+
+    if world_key:
+        # Redirect to the detailed view with the world_key
+        detail_url = reverse('world_data_detail', kwargs={'world_key': world_key})
+        return HttpResponseRedirect(detail_url)
+    else:
+        # If worldKey is not provided, redirect back to the input form or handle the error as needed
+        return HttpResponseRedirect(reverse('world_key_input'))
+
+
+@login_required
+def world_data_detail(request, world_key):
+    try:
+        world_data_instance = WorldData.objects.get(worldKey=world_key)
+        # Assuming your model's file field is named `dataFile`
+        if world_data_instance.dataFile:
+            with open(world_data_instance.dataFile.path, 'r') as file:
+                world_data = json.load(file)
+        else:
+            world_data = {}
+    except WorldData.DoesNotExist:
+        world_data = {}
+
+    return render(request, 'world_data_detail.html', {'world_data': world_data})
