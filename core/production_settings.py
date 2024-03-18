@@ -2,7 +2,7 @@ from core.base_settings import *
 from dotenv import load_dotenv
 
 load_dotenv()  # loads the configs from .env
-
+print("Database password is:", os.getenv("DB_PASSWORD"))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -14,8 +14,8 @@ DATABASES = {
     }
 }
 
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+ALLOWED_HOSTS = ['tmo.pythonanywhere.com']
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
