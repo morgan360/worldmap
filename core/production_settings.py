@@ -10,6 +10,7 @@ DATABASES = {
         'USER': 'tmo',
         'PASSWORD': os.getenv("DB_PASSWORD"),
         'HOST': 'tmo.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
     }
 }
 
