@@ -5,8 +5,14 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+    from dotenv import load_dotenv
+    load_dotenv()  # loads the configs from .env
+    """Run administrative tasks. Settings Location is stored in .env as DJANGO_SETTINGS_MODULE"""
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          str(os.getenv('DJANGO_SETTINGS_MODULE')))
+    # os.environ['DJANGO_SETTINGS_MODULE'] = 'core.local_settings'
+    print("Using settings:", os.environ.get('DJANGO_SETTINGS_MODULE'))
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

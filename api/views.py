@@ -2,16 +2,11 @@ import json
 from django.http import JsonResponse
 from rest_framework import generics
 from rest_framework.views import APIView
-from .models import Actors, WorldData
-from .serializers import ActorsSerializer, WorldDataSerializer
+from .models import WorldData
+from .serializers import WorldDataSerializer
 from django.core.files.base import ContentFile
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
-
-
-class ActorsListCreate(generics.ListCreateAPIView):
-    queryset = Actors.objects.all()
-    serializer_class = ActorsSerializer
 
 
 class WorldDataView(APIView):

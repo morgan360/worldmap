@@ -2,13 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
 from tablib import Dataset
-from .resources import CharacterResource
 import json
 import logging
 from django.shortcuts import render, redirect
-from .forms import LocationForm
 from django.http import HttpResponse
-from .models import Location
 from django.contrib.auth.decorators import login_required
 from api.models import WorldData
 from django.http import HttpResponseRedirect
@@ -65,37 +62,6 @@ def upload_json(request):
     return render(request, 'upload_json.html')
 
 
-def list_locations(request):
-    locations = Location.objects.all()  # Query all locations
-    return render(request, 'list_locations.html', {'locations': locations})
-
-
-def create_location(request):
-    if request.method == 'POST':
-        print('Posted')
-        form = LocationForm(request.POST)
-        if form.is_valid():
-            print('Valid')
-            form.save()
-            return redirect('list_locations')  # Redirect to a success URL
-    else:
-        form = LocationForm()
-
-    return render(request, 'create_location.html', {'form': form})
-
-
-def edit_location(request, id):
-    # Assuming 'Location' is your model and 'LocationForm' is your form
-    location = get_object_or_404(Location, id=id)
-    if request.method == 'POST':
-        form = LocationForm(request.POST, instance=location)
-        if form.is_valid():
-            form.save()
-            # Redirect to a success page, for example, the list locations page
-            return redirect('list_locations')
-    else:
-        form = LocationForm(instance=location)
-    return render(request, 'edit_location.html', {'form': form})
 
 @login_required
 def world_key_input(request):
