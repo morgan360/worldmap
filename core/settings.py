@@ -16,6 +16,10 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+from dotenv import load_dotenv
+
+load_dotenv()  # loads the configs from .env
+DB_PASSWORD = str(os.getenv('DB_PASSWORD')),
 # Custom User Model
 AUTH_USER_MODEL = 'users.CustomUser'
 # Quick-start development settings - unsuitable for production
