@@ -8,7 +8,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tmo$worlddata',
         'USER': 'tmo',
-        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'PASSWORD': 'onlyworlds',
         'HOST': 'tmo.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
