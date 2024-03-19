@@ -15,7 +15,7 @@ DATABASES = {
 }
 
 DEBUG = False
-ALLOWED_HOSTS = ['tmo.pythonanywhere.com']
+ALLOWED_HOSTS = ['www.onlyworlds.com']
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
