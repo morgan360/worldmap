@@ -4,22 +4,15 @@
 
 {% block content %}
 
-{#    <img src="{% static 'img/worldmap.jpg' %}" alt="World Map" class="absolute w-full h-full object-cover">#}
-    
-    <div class="flex items-center justify-center h-screen w-full">
-    <div>
-        <h1 class='text-center text-5xl font-bold leading-tight text-white font-serif'>Welcome to OnlyWorlds</h1>
-        <h2 class='text-3xl text-gray-500 text-center italic'>A World Standard</h2>
-        <p class='text-2xl text-gray-300 text-justify text-center px-4 md:px-6 lg:px-24 py-16'>OnlyWorlds is a proposal
-            for
-            how we structure our
-            worlds: an open source data framework that defines
-            worlds as interchangeable files, usable in any tool that is made compatible with the format.
-OnlyWorlds is currently in closed alpha. See the About page for more information and to request access to the initial toolset.
-</p>
+{#    <img src="{% static '/home/tmo/worldmap/img/worldmap.jpg' %}" alt="World Map" class="absolute w-full h-full object-cover">#}
 
-    </div>
+<div style="display: flex; justify-content: center; align-items: start; height: 100vh;">
+    <video autoplay loop muted style="max-width: 100%; max-height: 100%;">
+        <source src="{% static 'img/owAnimLogo.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
 
 
 {% endblock %}
+
