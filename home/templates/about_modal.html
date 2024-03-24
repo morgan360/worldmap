@@ -1,0 +1,65 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}OnlyWorlds | Home{% endblock %}
+{% block content %}
+    <div class="flex flex-col items-center justify-start min-h-screen w-full pt-16">
+        <div class="text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">About Us</h2>
+            <p class="text-lg text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1">
+                OnlyWorlds is an open source data framework for world building in creative applications<br>
+                Currently in closed alpha<br>
+                Leave your email and a message for questions or interest
+            </p>
+        </div>
+        <div x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false">
+            <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4" role="dialog"
+                 tabindex="-1" x-show="isModalOpen" x-on:click.away="isModalOpen = false" x-cloak
+                 x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-200"
+                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+                <div class="model-inner bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-md">
+                    <div class="modal-header flex justify-between items-center p-4 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold">Contact Us</h3>
+                        <button aria-label="Close" x-on:click="isModalOpen=false"
+                                class="text-gray-700 hover:text-gray-900">
+                            ✖
+                        </button>
+                    </div>
+                    <form action="{% url 'submit_contact_form' %}" method="post" class="p-4 space-y-4">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div>
+                                <label for="{{ field.id_for_label }}"
+                                       class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+                                {% if field.name == 'message' %}
+                                    <!-- Adjust the value rendering for the textarea -->
+                                    <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
+                                              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{% if field.value != None %}
+                                        {{ field.value }}{% endif %}</textarea>
+                                {% else %}
+                                    <!-- Adjust the value rendering for the input -->
+                                    <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
+                                           id="{{ field.id_for_label }}"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                           value="{% if field.value != None %}{{ field.value }}{% endif %}">
+                                {% endif %}
+                                {% if field.help_text %}
+                                    <p class="mt-2 text-sm text-gray-500">{{ field.help_text }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Send
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+            <button x-on:click="isModalOpen = true"
+                    class="mt-10 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                Contact Us
+            </button>
+        </div>
+    </div>
+{% endblock %}
