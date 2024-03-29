@@ -20,6 +20,7 @@ from dotenv import load_dotenv
 
 load_dotenv()  # loads the configs from .env
 DB_PASSWORD = str(os.getenv('DB_PASSWORD')),
+REMOTE_API_KEY = os.getenv('REMOTE_API_KEY')
 # Custom User Model
 AUTH_USER_MODEL = 'users.CustomUser'
 # Quick-start development settings - unsuitable for production
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'rest_framework.authtoken',
     # 'pillow',
     # My Apps
     'home',
@@ -237,4 +239,11 @@ MESSAGE_TAGS = {
     message_constants.SUCCESS: 'alert-success',
     message_constants.WARNING: 'alert-warning',
     message_constants.ERROR: 'alert-error',
+}
+
+# All API calls will need a token
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
