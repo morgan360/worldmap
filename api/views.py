@@ -7,6 +7,11 @@ from .serializers import WorldDataSerializer
 from django.core.files.base import ContentFile
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
+from django.conf import settings
+from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
 
 
 class WorldDataView(APIView):
@@ -48,3 +53,13 @@ def serve_world_data_file(request, world_key):
     except IOError:
         # File not found or some other error
         raise Http404('World data file does not exist')
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@require_http_methods(["GET"])
+def get_api_key(request):
+    # Your logic here. You could add additional checks to ensure that
+    # the user is authorized to access the API key
+    api_key = settings.REMOTE_API_KEY
+    return JsonResponse({"api_key": api_key})
