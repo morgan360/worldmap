@@ -12,15 +12,20 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from django.contrib.messages import constants as message_constants
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-from dotenv import load_dotenv
+# Adjust the path to point to the .env file in the project root
+dotenv_path = BASE_DIR / '.env'
+load_dotenv(dotenv_path=dotenv_path)
 
-load_dotenv()  # loads the configs from .env
-DB_PASSWORD = str(os.getenv('DB_PASSWORD')),
-REMOTE_API_KEY = os.getenv('REMOTE_API_KEY')
+DB_PASSWORD = str(os.getenv('DB_PASSWORD'))
+REMOTE_API_KEY = str(os.getenv('REMOTE_API_KEY'))
+
+print("my password", DB_PASSWORD)
+# Custom User Model
 # Custom User Model
 AUTH_USER_MODEL = 'users.CustomUser'
 # Quick-start development settings - unsuitable for production
