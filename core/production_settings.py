@@ -2,7 +2,7 @@ from core.base_settings import *
 from dotenv import load_dotenv
 
 load_dotenv()  # loads the configs from .env
-print("Database password is:", os.getenv("DB_PASSWORD"))
+DB_PASSWORD = os.getenv('DB_PASSWORD')
 REMOTE_API_KEY = os.getenv('REMOTE_API_KEY')
 DATABASES = {
     'default': {
