@@ -65,6 +65,7 @@ def get_api_key(request):
     return JsonResponse({"api_key": api_key})
 
 
+@api_view(['GET'])
 @require_http_methods(["GET"])
 def check_static_password(request):
     static_password = 'pass1'  # Define your static password
