@@ -1,6 +1,6 @@
 from django.urls import path
 
-from home.views import CustomLoginView
+from home.views import CustomLoginView, home
 from .views import my_signup_view, update_profile, view_profile
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('accounts/login/', CustomLoginView.as_view(), name='account_login'),
     path('profile/update/', update_profile, name='update_profile'),
     path('profile/', view_profile, name='view_profile'),
+    path('', home, name='home'),
 ]
