@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView
-
+from django.urls import reverse_lazy
 from .forms import FeedbackForm, ContactForm, CustomLoginForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -63,5 +63,5 @@ def thanks_view(request):
 
 class CustomLoginView(FormView):
     form_class = CustomLoginForm
-    success_url = 'home/templates/logged_in_home.html'  # or where you want to redirect after login
-    template_name = 'account/login.html'  # path to your login template
+    success_url = reverse_lazy('home')  # Use the name 'home'
+    template_name = 'account/login.html'
