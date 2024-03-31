@@ -232,7 +232,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 ACCOUNT_FORMS = {
-    'signup': 'users.forms.CouponSignupForm'
+    'signup': 'users.forms.CouponSignupForm',
+    'login': 'users.forms.LoginForm'
 }
 
 

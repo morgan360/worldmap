@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from users.forms import CouponSignupForm, UserProfileForm
+from users.forms import CouponSignupForm, UserProfileForm, CustomLoginForm
 from .models import Coupon
 from django.db import transaction
 from django.contrib import messages
@@ -69,3 +69,15 @@ def update_profile(request):
         form = UserProfileForm(instance=profile)
 
     return render(request, 'update_profile.html', {'form': form})
+
+
+def my_login_view(request):
+    print("my_login_view")
+    if request.method == 'POST':
+        form = CustomLoginForm(request.POST)
+        if form.is_valid():
+            return redirect('home')
+    else:
+        form = CustomLoginForm()
+
+    return render(request, 'account/login.html', {'form': form})
