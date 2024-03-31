@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import FeedbackForm, ContactForm
+from django.views.generic import FormView
+
+from .forms import FeedbackForm, ContactForm, CustomLoginForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.mail import send_mail  # Import Django's send_mail function
 from .models import ContactSubmission  # Import your model
+
 
 def home(request):
     if request.user.is_authenticated:
@@ -52,6 +55,13 @@ def submit_contact_form(request):
 
     return render(request, 'admin.html', {'form': form})
 
+
 def thanks_view(request):
     # Render the 'contact_thanks.html' template
     return render(request, 'contact_thanks.html')
+
+
+class CustomLoginView(FormView):
+    form_class = CustomLoginForm
+    success_url = 'users'  # or where you want to redirect after login
+    template_name = 'account/login.html'  # path to your login template
