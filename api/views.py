@@ -68,11 +68,11 @@ def get_api_key(request):
 @api_view(['GET'])
 @require_http_methods(["GET"])
 def check_static_password(request):
-    static_password = 'pass1'  # Define your static password
+    static_password = 'onlythebestofworlds'  # Define your static password
     provided_password = request.GET.get('password', '')
     api_key = settings.REMOTE_API_KEY
 
     if provided_password == static_password:
-        return JsonResponse({"api_key": api_key})
+        return JsonResponse({"api_key": api_key}, status=200)
     else:
         return JsonResponse({"message": "Access denied"}, status=403)
