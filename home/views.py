@@ -63,5 +63,5 @@ def thanks_view(request):
 
 class CustomLoginView(FormView):
     form_class = CustomLoginForm
-    success_url = 'users'  # or where you want to redirect after login
+    success_url = 'home/templates/logged_in_home.html'  # or where you want to redirect after login
     template_name = 'account/login.html'  # path to your login template
