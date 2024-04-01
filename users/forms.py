@@ -45,11 +45,16 @@ class CouponSignupForm(SignupForm):
 
 
 class CustomLoginForm(LoginForm):
+
     def __init__(self, *args, **kwargs):
         super(CustomLoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
-            Field('password', css_class='bg-green-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Field('login', css_class='bg-green-200 border-2 border-gray-300 rounded py-2 px-8 block w-full'),
+            Field('password', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Div(Submit('submit', 'Sign In',
+                       css_class='bg-[#37C1F0] hover:bg-[#0a8cbf] text-white font-bold py-2 px-4 rounded'),
+                css_class='text-center')
         )
         self.helper.label_class = 'text-[#f57ed7] font-normal text-lg'
 
