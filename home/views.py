@@ -14,6 +14,7 @@ def home(request):
         return render(request, 'home.html')
 
 
+
 def feedback_view(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
