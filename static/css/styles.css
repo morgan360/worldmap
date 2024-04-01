@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tab-active {
+    color: blue !important; /* Ensures this color override is applied */
+    border-bottom: 2px solid blue !important; /* Adds importance to our custom border */
+}

@@ -5,30 +5,97 @@
 
 {% block content %}
     <div class="container mx-auto p-4">
-        <div class="max-w-md md:max-w-lg rounded overflow-hidden shadow-lg my-4 mx-auto">  <!-- Adjusted width here -->
-            <img class="w-full" src="{% static 'img/logged_in_page.png' %}" alt="Your Image">
-            <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Welcome to Your Dashboard</div>
-                <p class="text-gray-700 text-base">
-                    Here is your special content now that you're logged in!
-                </p>
+        <div class="min-h-screen md:max-w-4xl rounded overflow-hidden shadow-lg my-4 mx-auto">
+
+            <!-- Tab headers -->
+            <div class="border-b-2">
+                <nav class="flex flex-row justify-between">
+                    <button class="tab text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" data-target="landing">
+                        Landing
+                    </button>
+                    <button class="tab text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" data-target="framework">
+                        Framework
+                    </button>
+                    <button class="tab text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" data-target="apps">
+                        Apps
+                    </button>
+                    <button class="tab text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" data-target="faqs">
+                        FAQs
+                    </button>
+                    <button class="tab text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" data-target="profile">
+                        Profile
+                    </button>
+                    <button class="tab text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none" data-target="worlds">
+                        Worlds
+                    </button>
+                </nav>
             </div>
-            <div class="flex">
-    <div class="px-6 pt-4 pb-2">
-        <a href="{{ MEDIA_URL }}app-release.apk" download
-           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Download APK
-        </a>
-    </div>
-    <div class="px-6 pt-4 pb-2">
-        <a href="{% url 'feedback' %}"
-           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Provide Feedback
-        </a>
-    </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content p-4 bg-gray-200" id="landing" style="display: none;">
+                <!-- Include your landing content here -->
+              {% include 'content_landing.html' %}
             </div>
+            <div class="tab-content p-4 bg-gray-200" id="framework" style="display: none;">
+                <!-- Include your framework content here -->
+                {% include 'content_framework.html' %}
+            </div>
+            <div class="tab-content p-4 bg-gray-200" id="apps" style="display: none;">
+                <!-- Include your apps content here -->
+                 {% include 'content_apps.html' %}
+            </div>
+            <div class="tab-content p-4 bg-gray-200" id="faqs" style="display: none;">
+                <!-- Include your FAQs content here -->
+                 {% include 'content_FAQs.html' %}
+            </div>
+            <div class="tab-content p-4 bg-gray-200" id="profile" style="display: none;">
+                <!-- Include your profile content here -->
+                {% include 'content_profile.html' %}
+            </div>
+            <div class="tab-content p-4 bg-gray-200" id="worlds" style="display: none;">
+                <!-- Include your worlds content here -->
+                 {% include 'content_worlds.html' %}
+            </div>
+            <!-- More tab contents here -->
+
         </div>
     </div>
-{% endblock content %}
 
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-content');
+    const tabButtons = document.querySelectorAll('.tab');
+
+    function hideAllTabs() {
+        tabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        tabButtons.forEach(button => {
+            button.classList.remove('tab-active');
+            button.classList.add('text-gray-600'); // Add back the default color
+            button.classList.remove('text-blue-500'); // Remove the hover color
+        });
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            hideAllTabs();
+            const target = document.getElementById(button.getAttribute('data-target'));
+
+            button.classList.remove('text-gray-600'); // Remove the default color
+            button.classList.add('text-blue-500'); // Add the hover color
+            button.classList.add('tab-active'); // Mark the button as active
+            target.style.display = 'block'; // Show the corresponding tab content
+        });
+    });
+
+    // Set the default active tab (the first one if none is active)
+    const activeTab = document.querySelector('.tab.tab-active') || tabButtons[0];
+    activeTab.classList.remove('text-gray-600');
+    activeTab.classList.add('text-blue-500');
+    document.getElementById(activeTab.getAttribute('data-target')).style.display = 'block';
+    activeTab.classList.add('tab-active');
+});
+</script>
+{% endblock content %}
 
