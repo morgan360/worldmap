@@ -5,19 +5,20 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Field
 from users.models import CustomUser
 from django.core.exceptions import ValidationError
+from crispy_forms.layout import Div
 
 
 class CouponSignupForm(SignupForm):
     first_name = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'}),
+        widget=forms.TextInput(attrs={'placeholder': 'First name'}),
         required=True
     )
     last_name = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'}),
+        widget=forms.TextInput(attrs={'placeholder': 'Last name'}),
         required=True
     )
-    coupon_code = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'}),
+    key_code = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'Key code'}),
         required=True
     )
 
@@ -30,9 +31,9 @@ class CouponSignupForm(SignupForm):
             Field('last_name', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password1', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password2', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
-            Field('coupon_code', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
-            Submit('submit', 'Sign Up', css_class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded')
-        )
+            Field('key_code', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Div(Submit('submit', 'Sign Up', css_class='bg-[#37C1F0] hover:bg-[#0a8cbf] text-white font-bold py-2 px-4 rounded'), css_class='text-center'))
+        self.helper.label_class = 'text-[#f57ed7] font-normal text-lg'
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -45,3 +46,5 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['bio', 'avatar']
+
+
