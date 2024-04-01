@@ -20,7 +20,6 @@ django-import-export==3.3.7
 django-js-asset==2.1.0
 django-widget-tweaks==1.5.0
 djangorestframework==3.14.0
-dotenv==0.0.5
 et-xmlfile==1.1.0
 folium==0.14.0
 idna==3.4
@@ -35,6 +34,7 @@ pillow==10.2.0
 pycparser==2.21
 PyJWT==2.8.0
 python3-openid==3.2.0
+python-dotenv==1.0.1
 pytz==2024.1
 PyYAML==6.0.1
 requests==2.31.0
