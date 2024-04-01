@@ -4,6 +4,18 @@
 {% load widget_tweaks %}
 
 {% block content %}
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="fixed top-0 right-0 mt-4 mr-4 flex flex-col space-y-2 z-50">
+        {% for message in messages %}
+            <div class="alert-toast alert-{{ message.tags }} p-4 mb-4 rounded-md shadow-lg flex items-center bg-blue-500 text-white text-lg">
+                <p>{{ message }}</p>
+                <button class="ml-auto" onclick="this.parentElement.remove();">
+                    <svg class="fill-current h-10 w-10" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1 1 0 0 1-1.414 0L10 11.707l-2.934 2.935a1 1 0 0 1-1.414-1.414L8.586 10 5.652 7.065a1 1 0 1 1 1.414-1.414L10 8.586l2.934-2.935a1 1 0 1 1 1.414 1.414L11.414 10l2.934 2.935a1 1 0 0 1 0 1.414z"/></svg>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+
     <div class="flex justify-center items-center min-h-screen">
         <div class="w-full max-w-xs border-2 border-gray-300 p-6 rounded-lg shadow-lg">
             <form method="post" action="{% url 'signup' %}">
@@ -12,4 +24,17 @@
             </form>
         </div>
     </div>
+
+    <!-- Toast Notification Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const toasts = document.querySelectorAll('.alert-toast');
+            toasts.forEach(toast => {
+                setTimeout(() => {
+                    toast.classList.add('opacity-0');
+                    setTimeout(() => toast.remove(), 1200); // Match fade out to 1.2 seconds
+                }, 2400); // Show toast for 1.2 seconds before beginning to fade out
+            });
+        });
+    </script>
 {% endblock %}

@@ -1,3 +1,20 @@
+:root {
+    --color-primary: #37C1F0;
+    --color-primary-dark: #0a8cbf;
+    --color-error: #f56565;
+    --color-success: #68d391;
+    --color-info: #63b3ed;
+    --color-label: #2c9ac0;
+    --color-alert: #ffcc00;
+    --text-dark: #333333;
+    --form-bg: #f7fafc;
+}
+
+.custom-font {
+    font-family: 'Playfair', sans-serif;
+}
+
+
 .alert-error {
     @apply bg-red-100 text-red-800;
 }

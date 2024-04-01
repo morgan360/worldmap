@@ -18,17 +18,17 @@ def my_signup_view(request):
                     try:
                         coupon = Coupon.objects.get(code=coupon_code, is_valid=True)
                         if coupon.expires_at and coupon.expires_at < timezone.now():
-                            messages.error(request, "This keycode has expired.")
+                            # messages.error(request, "This keycode has expired.")
                             return render(request, 'account/signup.html', {'form': form})
                         else:
                             user = form.save(request)
                             coupon.user = user
                             coupon.is_valid = False
                             coupon.save()
-                            messages.success(request, "Coupon applied successfully.")
+                            messages.success(request, "Keycode successfully used")
                             return redirect('account_login')
                     except Coupon.DoesNotExist:
-                        messages.error(request, "Invalid coupon code.")
+                        messages.error(request, "Invalid Keycode")
                         return render(request, 'account/signup.html', {'form': form})
                 else:
                     # Handle case when no coupon code is provided
