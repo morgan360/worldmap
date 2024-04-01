@@ -4,17 +4,6 @@
 {% load widget_tweaks %}
 
 {% block content %}
-    {#    Show error messages #}
-    {% if messages %}
-        <div class="mt-4 text-center">
-            {% for message in messages %}
-                <div class="alert p-4 mb-4 rounded-md">
-                    <p>{{ message }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
-
     <div class="flex justify-center items-center min-h-screen">
         <div class="w-full max-w-xs border-2 border-gray-300 p-6 rounded-lg shadow-lg">
             <form method="post" action="{% url 'signup' %}">

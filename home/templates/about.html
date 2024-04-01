@@ -4,42 +4,41 @@
 {% block title %}OnlyWorlds | Home{% endblock %}
 
 {% block content %}
-<div class="flex flex-col items-center justify-start min-h-screen w-full pt-16">
-    <div class="text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">OnlyWorlds</h2>
-        <p class="text-lg text-gray-300 text-justify px-4 md:px-6 lg:px-24 py-1">
-            OnlyWorlds is a game developer’s approach to world building.
-            OnlyWorlds is an open source data framework for world building in creative applications<br>
-            Currently in closed alpha<br>
-            Leave your email and a message for questions or interest
+<div class="flex flex-col items-center justify-start min-h-screen w-full bg-black text-gray-200">
+    <div class="text-center mt-8 lg:mt-16">
+        <h1 class="text-5xl font-bold text-blue-400 mb-2">OnlyWorlds</h1>
+        <p class="text-lg px-4 md:px-6 lg:px-24 py-2">
+            A framework for world building with an open source data format<br>
+            Allows world creation, display and simulation across tools, games, apps, and web<br><br><br><br>
+
+           In closed alpha<br>
+           Please leave a message if you are interested in participating
         </p>
     </div>
     <!-- Embed the form directly into the page content -->
-    <div class="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-md m-4">
-        <div class="p-4 border-b border-gray-200">
-            <h3 class="text-lg font-semibold">Contact Us</h3>
-        </div>
-        <form action="{% url 'submit_contact_form' %}" method="post" class="p-4 space-y-4">
+    <div class="bg-black rounded-lg shadow-2xl overflow-hidden w-full max-w-lg m-4 p-6">
+        <form action="{% url 'submit_contact_form' %}" method="post" class="space-y-6">
             {% csrf_token %}
             {% for field in form %}
                 <div>
-                    <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+                    <label for="{{ field.id_for_label }}" class="block text-sm font-medium">{{ field.label }}</label>
                     {% if field.name == 'message' %}
                         <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
-                                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{% if field.value != None %}{{ field.value }}{% endif %}</textarea>
+                                  class="mt-1 block w-full px-3 py-4 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
+                                  >{{ field.value|default_if_none:'' }}</textarea>
                     {% else %}
                         <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
                                id="{{ field.id_for_label }}"
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                               value="{% if field.value != None %}{{ field.value }}{% endif %}">
+                               class="mt-1 block w-full px-3 py-2 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
+                               value="{{ field.value|default_if_none:'' }}">
                     {% endif %}
                     {% if field.help_text %}
-                        <p class="mt-2 text-sm text-gray-500">{{ field.help_text }}</p>
+                        <p class="mt-2 text-sm text-gray-400">{{ field.help_text }}</p>
                     {% endif %}
                 </div>
             {% endfor %}
             <button type="submit"
-                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    class="w-full flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
                 Send
             </button>
         </form>
