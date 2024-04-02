@@ -9,7 +9,12 @@
     --text-dark: #333333;
     --form-bg: #f7fafc;
 }
-
+.centered-form-element {
+    display: block;
+    max-width: 24rem; /* Adjust the width to your preference */
+    margin: 0 auto; /* This centers the block */
+    width: 100%; /* Ensures it doesn't exceed the max-width */
+}
 .custom-font {
     font-family: 'Workbench', sans-serif;
 }

@@ -52,10 +52,10 @@ class CustomLoginForm(LoginForm):
         self.helper = FormHelper()
         self.helper.label_class = 'custom-font'
         self.helper.layout = Layout(
-            Field('login', css_class='bg-green-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
-            Field('password', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Field('login', css_class='bg-green-200 border-2 border-gray-300 rounded py-2 px-4 block w-full max-w-md mx-auto'),
+            Field('password', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full max-w-md mx-auto'),
             Div(Submit('submit', 'Sign In',
-                       css_class=f'bg-[{colors.colors["button_color"]}] hover:bg-[{colors.colors["hover_button_color"]}]text-[{colors.colors["button_text_color"]}] font-bold py-2 px-4 rounded'),
+                       css_class=f'bg-[{colors.colors["button_color"]}] hover:bg-[{colors.colors["hover_button_color"]}] text-[{colors.colors["button_text_color"]}] font-bold py-2 px-4 rounded'),
                 css_class='text-center')
         )
         self.helper.label_class = f'text-[{colors.colors["label_color"]}] font-normal text-lg'
