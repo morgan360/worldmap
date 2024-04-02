@@ -13,7 +13,7 @@ def my_signup_view(request):
         form = CouponSignupForm(request.POST)
         if form.is_valid():
             with transaction.atomic():
-                coupon_code = form.cleaned_data.get('key_code')
+                coupon_code = form.cleaned_data.get('keycode')
                 if coupon_code:
                     try:
                         coupon = Coupon.objects.get(code=coupon_code, is_valid=True)

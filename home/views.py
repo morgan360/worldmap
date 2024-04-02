@@ -13,7 +13,18 @@ def home(request):
         # Render the regular homepage template for non-logged-in users
         return render(request, 'home.html')
 
-
+def my_view(request):
+    # Your existing view logic
+    colors = {
+        'label_color': '#2687a8',
+        'hover_button_color': '#37c1f0',
+        'button_text_color': '#c3ecfa',
+        'button_color': '#2c9ac0',
+        'dark_color': '#164d60'
+    }
+    context = {'colors': colors}
+    # Other context data
+    return render(request, 'my_template.html', context)
 
 def feedback_view(request):
     if request.method == 'POST':

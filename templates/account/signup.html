@@ -16,8 +16,8 @@
         {% endfor %}
     </div>
 
-    <div class="flex justify-center items-center min-h-screen">
-        <div class="w-full max-w-xs border-2 border-gray-300 p-6 rounded-lg shadow-lg">
+    <div class="flex justify-center items-start pt-8 pb-20"> <!-- Adjust vertical padding -->
+        <div class="w-full max-w-xs border-2 border-[#164d60] p-6 rounded-lg shadow-lg"> <!-- Set your border color -->
             <form method="post" action="{% url 'signup' %}">
                 {% csrf_token %}
                 {% crispy form %}
@@ -33,7 +33,7 @@
                 setTimeout(() => {
                     toast.classList.add('opacity-0');
                     setTimeout(() => toast.remove(), 1200); // Match fade out to 1.2 seconds
-                }, 2400); // Show toast for 1.2 seconds before beginning to fade out
+                }, 3000); // Show toast for 1.2 seconds before beginning to fade out
             });
         });
     </script>

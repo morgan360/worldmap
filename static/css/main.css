@@ -9,11 +9,47 @@
     --text-dark: #333333;
     --form-bg: #f7fafc;
 }
-
+.centered-form-element {
+    display: block;
+    max-width: 24rem; /* Adjust the width to your preference */
+    margin: 0 auto; /* This centers the block */
+    width: 100%; /* Ensures it doesn't exceed the max-width */
+}
+.custom-border-color {
+    border-color: #2687a8;
+}
 .custom-font {
-    font-family: 'Playfair', sans-serif;
+    font-family: 'Workbench', sans-serif;
+}
+@font-face {
+    font-family: 'HeaderFont';
+    src: url('/static/fonts/HeaderFont.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'HeaderSpecialFont';
+    src: url('/static/fonts/HeaderSpecialFont.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'TextFont';
+    src: url('/static/fonts/TextFont.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'TextSpecialFont';
+    src: url('/static/fonts/TextSpecialFont.ttf') format('truetype');
 }
 
+.header-font {
+        font-family: 'HeaderFont', sans-serif; /* Use the name from your @font-face rule */
+}
+.header-heavy-font {
+        font-family: 'HeaderSpecialFont', sans-serif; /* Use the name from your @font-face rule */
+}
+.text-font {
+        font-family: 'TextFont', sans-serif; /* Use the name from your @font-face rule */
+}
+.text-special-font {
+        font-family: 'TextSpecialFont', sans-serif; /* Use the name from your @font-face rule */
+}
 
 .alert-error {
     @apply bg-red-100 text-red-800;

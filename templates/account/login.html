@@ -3,23 +3,25 @@
 {% load static %}
 
 {% block content %}
-    <div class="container mx-auto p-4 custom-font">
-        <form method="post" action="{% url 'login' %}">
+    <div class="flex justify-center items-start pt-8 pb-8">
+    <div class="w-full max-w-xs border-2 border-[#164d60] p-6 rounded-lg shadow-lg">
+        <form method="post" action="{% url 'login' %}" class="text-center">
             {% csrf_token %}
              {% crispy form %}
-            <div>
+            <div class="text-center my-4">
                 <a href="{% url 'account_reset_password' %}"
-                   class="mb-4 inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800  ">
-                    Forgot Password?
+                   class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                    Forgot Password
                 </a>
             </div>
+
             <!-- Signup Button -->
-            <div>
+            <div class="text-center my-4">
                 <a href="{% url 'account_signup' %}"
-                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                   class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
                     Create Account
                 </a>
             </div>
         </form>
-    </div>
+    </div>   </div>
 {% endblock %}
