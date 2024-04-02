@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-    <div class="container mx-auto p-4 custom-font">
+    <div class="flex justify-center items-start pt-8 pb-8">
+    <div class="w-full max-w-xs border-2 border-[#164d60] p-6 rounded-lg shadow-lg">
         <form method="post" action="{% url 'login' %}" class="text-center">
             {% csrf_token %}
              {% crispy form %}
@@ -13,6 +14,7 @@
                     Forgot Password
                 </a>
             </div>
+
             <!-- Signup Button -->
             <div class="text-center my-4">
                 <a href="{% url 'account_signup' %}"
@@ -21,5 +23,5 @@
                 </a>
             </div>
         </form>
-    </div>
+    </div>   </div>
 {% endblock %}

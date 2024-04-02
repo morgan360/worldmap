@@ -6,42 +6,50 @@
 {% block content %}
 <div class="flex flex-col items-center justify-start min-h-screen w-full bg-black text-gray-200">
     <div class="text-center mt-8 lg:mt-16">
-        <h1 class="text-5xl font-bold text-[#37C1F0] mb-2">OnlyWorlds</h1>
-        <p class="text-lg px-4 md:px-6 lg:px-24 py-2">
-            A framework for world building with an open source data format<br>
-            Allows world creation, display and simulation across tools, games, apps, and web<br><br><br><br>
-
-           In closed alpha<br>
-           Please leave a message if you are interested in participating
-        </p>
+        <!-- Styled Widget for Top Label and Description -->
+        <div class="bg-gray-800 bg-opacity-75 rounded-lg p-4 shadow-xl">
+            <h1 class="text-5xl font-bold text-[#37C1F0] mb-2">OnlyWorlds</h1>
+            <p class="text-lg italic px-4 md:px-6 py-2">
+                A framework for world building with an open source data format<br>
+                Allows world creation, display and simulation across tools, games, apps, and web
+            </p>
+        </div>
     </div>
-    <!-- Embed the form directly into the page content -->
-    <div class="bg-black rounded-lg shadow-2xl overflow-hidden w-full max-w-lg m-4 p-6">
-        <form action="{% url 'submit_contact_form' %}" method="post" class="space-y-6">
-            {% csrf_token %}
-            {% for field in form %}
-                <div>
-                    <label for="{{ field.id_for_label }}" class="block text-[#f57ed7] text-lg font-large">{{ field.label }}</label>
-                    {% if field.name == 'message' %}
-                        <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
-                                  class="mt-1 block h-20 w-full py-2 px-2 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
-                                  >{{ field.value|default_if_none:'' }}</textarea>
-                    {% else %}
-                        <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                               id="{{ field.id_for_label }}"
-                               class="mt-1 block w-full h-10 py-0 px-2 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
-                               value="{{ field.value|default_if_none:'' }}">
-                    {% endif %}
-                    {% if field.help_text %}
-                        <p class="mt-2 text-sm text-gray-400">{{ field.help_text }}</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-            <button type="submit"
-                    class="w-full flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#37C1F0] hover:bg-[#0a8cbf] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
-                Send
-            </button>
-        </form>
+    <!-- Container for Additional Info and Form -->
+    <div class="text-center mt-4 lg:mt-8 bg-gray-900 bg-opacity-80 rounded-lg shadow-xl px-4 py-4 w-full max-w-3xl">
+        <!-- Additional Info -->
+        <p class="text-lg px-2 md:px-4 py-2">
+            In closed alpha<br>
+            Please leave a message if you are interested in contributing
+        </p>
+        <!-- Embed the form within the new container -->
+        <div class="rounded-lg overflow-hidden">
+            <form action="{% url 'submit_contact_form' %}" method="post" class="space-y-6">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div>
+                        <label for="{{ field.id_for_label }}" class="block text-[#2687a8] text-lg">{{ field.label }}</label>
+                        {% if field.name == 'message' %}
+                            <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
+                                      class="mt-1 block h-20 w-full py-2 px-3 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
+                                      >{{ field.value|default_if_none:'' }}</textarea>
+                        {% else %}
+                            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
+                                   id="{{ field.id_for_label }}"
+                                   class="mt-1 block w-full h-10 py-0 px-3 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
+                                   value="{{ field.value|default_if_none:'' }}">
+                        {% endif %}
+                        {% if field.help_text %}
+                            <p class="mt-2 text-sm text-gray-400">{{ field.help_text }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type="submit"
+                        class="w-full flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-[#c3ecfa] bg-[#2c9ac0] hover:bg-[#37c1f0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
+                    Send
+                </button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
