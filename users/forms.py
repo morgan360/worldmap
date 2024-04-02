@@ -19,7 +19,7 @@ class CouponSignupForm(SignupForm):
         widget=forms.TextInput(attrs={'placeholder': 'Last name'}),
         required=True
     )
-    key_code = forms.CharField(
+    keycode = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Keycode'}),
         required=True
     )
@@ -34,7 +34,7 @@ class CouponSignupForm(SignupForm):
             Field('last_name', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password1', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password2', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
-            Field('key_code', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Field('keycode', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Div(Submit('submit', 'Sign Up', css_class=f'bg-[{colors.colors["button_color"]}] hover:bg-[{colors.colors["hover_button_color"]}] text-[{colors.colors["button_text_color"]}] font-bold py-2 px-4 rounded'), css_class='text-center'))
         self.helper.label_class = f'text-[{colors.colors["label_color"]}] font-normal text-lg'
 

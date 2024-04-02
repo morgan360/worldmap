@@ -15,6 +15,9 @@
     margin: 0 auto; /* This centers the block */
     width: 100%; /* Ensures it doesn't exceed the max-width */
 }
+.custom-border-color {
+    border-color: #2687a8;
+}
 .custom-font {
     font-family: 'Workbench', sans-serif;
 }
