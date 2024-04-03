@@ -11,27 +11,23 @@
             <h1 class="text-5xl font-bold text-[#37C1F0] mb-2">OnlyWorlds</h1>
             <p class="text-lg italic px-4 md:px-6 py-2">
                 A framework for world building with an open source data format<br>
-                Allows world creation, display and simulation across tools, games, apps, and web
+                For world creation, display and simulation across tools, games, apps, and web
             </p>
         </div>
     </div>
     <!-- Container for Additional Info and Form -->
-    <div class="text-center mt-4 lg:mt-8 bg-gray-900 bg-opacity-80 rounded-lg shadow-xl px-4 py-4 w-full max-w-3xl">
+    <div class="text-center mt-4 lg:mt-8 bg-gray-900 bg-opacity-80 rounded-lg shadow-xl px-4 py-2 w-full max-w-3xl">
         <!-- Additional Info -->
-        <p class="text-lg px-2 md:px-4 py-2">
-            In closed alpha<br>
-            Please leave a message if you are interested in contributing
-        </p>
         <!-- Embed the form within the new container -->
         <div class="rounded-lg overflow-hidden">
-            <form action="{% url 'submit_contact_form' %}" method="post" class="space-y-6">
+            <form action="{% url 'submit_contact_form' %}" method="post" class="space-y-4">
                 {% csrf_token %}
                 {% for field in form %}
                     <div>
                         <label for="{{ field.id_for_label }}" class="block text-[#2687a8] text-lg">{{ field.label }}</label>
                         {% if field.name == 'message' %}
                             <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
-                                      class="mt-1 block h-20 w-full py-2 px-3 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
+                                      class="mt-1 block h-20 w-full py-0 px-3 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
                                       >{{ field.value|default_if_none:'' }}</textarea>
                         {% else %}
                             <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
@@ -46,7 +42,7 @@
                 {% endfor %}
                 <button type="submit"
                         class="w-full flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-[#c3ecfa] bg-[#2c9ac0] hover:bg-[#37c1f0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
-                    Send
+                    Submit Interest
                 </button>
             </form>
         </div>
