@@ -4,7 +4,7 @@
 {% block title %}OnlyWorlds | Home{% endblock %}
 
 {% block content %}
-<div class="flex flex-col items-center justify-start min-h-screen w-full bg-black text-gray-200">
+<div class="flex flex-col items-center justify-start  w-full bg-black text-gray-200">
     <div class="text-center mt-8 lg:mt-16">
         <!-- Styled Widget for Top Label and Description -->
         <div class="bg-gray-800 bg-opacity-75 rounded-lg p-4 shadow-xl">
@@ -45,6 +45,14 @@
                     Request Access
                 </button>
             </form>
+        </div>
+    </div>
+</div>
+    <div class="w-full px-4 py-2">
+        <div class="text-center text-xs text-gray-400">
+            <a href="{% url 'privacy_policy' %}" class="hover:text-gray-200" style="text-decoration: underline;">
+                Privacy Policy
+            </a>
         </div>
     </div>
 </div>
