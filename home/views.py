@@ -15,7 +15,7 @@ def home(request):
 
 
 def privacy_policy(request):
-    return render(request, 'privacy.html')
+    return render(request, 'policy.html')
 
 def my_view(request):
     # Your existing view logic
