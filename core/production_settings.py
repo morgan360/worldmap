@@ -16,7 +16,7 @@ DATABASES = {
 }
 
 DEBUG = False
-ALLOWED_HOSTS = ['www.onlyworlds.com']
+ALLOWED_HOSTS = ['privacypolicy.onlyworlds.com', 'www.onlyworlds.com']
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

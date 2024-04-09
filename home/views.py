@@ -13,6 +13,10 @@ def home(request):
         # Render the regular homepage template for non-logged-in users
         return render(request, 'home.html')
 
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
 def my_view(request):
     # Your existing view logic
     colors = {
