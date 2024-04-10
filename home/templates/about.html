@@ -7,7 +7,7 @@
 <div class="flex flex-col items-center justify-start  w-full bg-black text-gray-200">
     <div class="text-center mt-8 lg:mt-16">
         <!-- Styled Widget for Top Label and Description -->
-        <div class="bg-gray-800 bg-opacity-75 rounded-lg p-4 shadow-xl">
+        <div class=" bg-opacity-75 rounded-lg p-4 shadow-xl">
             <h1 class="text-5xl font-bold text-[#37C1F0] mb-2">OnlyWorlds</h1>
             <p class="text-lg italic px-4 md:px-6 py-2">
                 A framework for world building on an open source data format<br>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <!-- Container for Additional Info and Form -->
-    <div class="text-center mt-4 lg:mt-8 bg-gray-900 bg-opacity-80 rounded-lg shadow-xl px-4 py-2 w-full max-w-3xl">
+    <div class="text-center mt-4 lg:mt-8  bg-opacity-80 rounded-lg shadow-xl px-4 py-2 w-full max-w-3xl">
         <!-- Additional Info -->
         <!-- Embed the form within the new container -->
         <div class="rounded-lg overflow-hidden">
@@ -24,7 +24,7 @@
                 {% csrf_token %}
                 {% for field in form %}
                     <div>
-                        <label for="{{ field.id_for_label }}" class="block text-[#2687a8] text-lg">{{ field.label }}</label>
+                       {% comment %} <label for="{{ field.id_for_label }}" class="block text-[#2687a8] text-lg">{{ field.label }}</label>{% endcomment %}
                         {% if field.name == 'message' %}
                             <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
                                       class="mt-1 block h-20 w-full py-0 px-3 rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-gray-500 text-white shadow-sm sm:text-sm"
