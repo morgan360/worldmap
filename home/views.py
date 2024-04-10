@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import FeedbackForm, ContactForm
+from .forms import FeedbackForm, CustomContactForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.mail import send_mail  # Import Django's send_mail function
@@ -45,13 +45,13 @@ def feedback_view(request):
 
 
 def about(request):
-    form = ContactForm()
+    form = CustomContactForm()
     return render(request, 'about.html', {'form': form})
 
 
 def submit_contact_form(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = CustomContactForm(request.POST)
         if form.is_valid():
             # Save the form data to the database
             contact_submission = ContactSubmission.objects.create(
@@ -64,7 +64,7 @@ def submit_contact_form(request):
             # Redirect to a new URL:
             return HttpResponseRedirect(reverse('contact_thanks'))
     else:
-        form = ContactForm()
+        form = CustomContactForm()
 
     return render(request, 'admin.html', {'form': form})
 

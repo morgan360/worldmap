@@ -1,6 +1,9 @@
+from crispy_forms.helper import FormHelper
 from django import forms
-from .models import Feedback
 
+from core.colors import colors
+from .models import Feedback
+from crispy_forms.layout import Layout, Submit, Field
 
 class FeedbackForm(forms.ModelForm):
     class Meta:
@@ -12,6 +15,15 @@ class FeedbackForm(forms.ModelForm):
 from django import forms
 
 
-class ContactForm(forms.Form):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'Your email'}))
-    message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-textarea', 'placeholder': 'Your message'}))
+class CustomContactForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'Email'}))
+    message = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Message',
+    }), required=True)
+    def __init__(self, *args, **kwargs):
+        super(CustomContactForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.label_class = 'custom-font'
+        self.helper.layout = Layout(
+            Field('email', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full '),
+                  )
