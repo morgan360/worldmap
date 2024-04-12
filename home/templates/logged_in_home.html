@@ -10,25 +10,25 @@
             <!-- Tab headers -->
             <div class="border-b-2 border-blue-500">
                 <nav class="flex flex-row justify-between">
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="landing">
+                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="landing-tab" data-target="landing">
                         Home
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="framework">
+                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="framework-tab" data-target="framework">
                         Framework
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="apps">
+                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="apps-tab" data-target="apps">
                         Applications
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="faqs">
+                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="faqs-tab" data-target="faqs">
                         FAQs
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="profile">
+                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="profile-tab" data-target="profile">
                         Profile
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="worlds">
+                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="worlds-tab" data-target="worlds">
                         Worlds
 {#                    </button>#}
-{#                            <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-blue-500 focus:outline-none" data-target="policy">#}
+{#                            <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" data-target="policy">#}
 {#                        Privacy Policy#}
 {#                    </button>#}
                 </nav>
@@ -69,7 +69,7 @@
     </div>
 
  <script>
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-content');
     const tabButtons = document.querySelectorAll('.tab');
 
@@ -78,9 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.style.display = 'none';
         });
         tabButtons.forEach(button => {
-            button.classList.remove('tab-active');
-            button.classList.add('text-gray-600'); // Add back the default color
-            button.classList.remove('text-blue-500'); // Remove the hover color
+            button.classList.remove('tab-active', 'bg-blue-500', 'text-white'); // Remove active styles
+            button.classList.add('text-gray-500'); // Add back the default color
         });
     }
 
@@ -88,21 +87,28 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             hideAllTabs();
             const target = document.getElementById(button.getAttribute('data-target'));
-
-            button.classList.remove('text-gray-600'); // Remove the default color
-            button.classList.add('text-blue-500'); // Add the hover color
-            button.classList.add('tab-active'); // Mark the button as active
+            button.classList.add('tab-active', 'bg-blue-500', 'text-white'); // Add active styles
             target.style.display = 'block'; // Show the corresponding tab content
         });
     });
 
-    // Set the default active tab (the first one if none is active)
-    const activeTab = document.querySelector('.tab.tab-active') || tabButtons[0];
-    activeTab.classList.remove('text-gray-600');
-    activeTab.classList.add('text-blue-500');
-    document.getElementById(activeTab.getAttribute('data-target')).style.display = 'block';
-    activeTab.classList.add('tab-active');
+    // If there's a link that triggers another tab, manage it here
+    const linkToFramework = document.getElementById('link-to-framework');
+    if (linkToFramework) {
+        linkToFramework.addEventListener('click', (e) => {
+            e.preventDefault();
+            const frameworkTab = document.getElementById('framework-tab');
+            frameworkTab.click(); // Programmaticallys click the Framework tab
+        });
+    }
+
+    // Optionally, set the first tab as active if no other active tab found
+    const initialActiveTab = document.querySelector('.tab-active') || tabButtons[0];
+    if (!initialActiveTab.classList.contains('tab-active')) {
+        initialActiveTab.click(); // Set the first tab as active by default
+    }
 });
+
 </script>
 {% endblock content %}
 
