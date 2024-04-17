@@ -31,20 +31,20 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    handle = models.CharField(max_length=30)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'handle']
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} ({self.email})"
+        return f"{self.first_name} {self.handle} ({self.email})"
 
     def full_name(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.first_name}'
 
 
 # Needed for registration
@@ -80,4 +80,4 @@ class UserProfile(models.Model):
             img.save(self.avatar.path)
 
     def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name}'
+        return f'{self.user.first_name}'
