@@ -5,20 +5,20 @@ from .models import CustomUser, Coupon, UserProfile
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    list_display = ['email', 'first_name', 'last_name', 'is_active', 'is_staff']
+    list_display = ['email', 'first_name', 'handle', 'is_active', 'is_staff']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal Info', {'fields': ('first_name', 'last_name')}),
+        ('Personal Info', {'fields': ('first_name', 'handle')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         ('Important dates', {'fields': ('last_login',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2', 'first_name', 'last_name'),
+            'fields': ('email', 'password1', 'password2', 'first_name', 'handle'),
         }),
     )
-    search_fields = ('email', 'first_name', 'last_name')
+    search_fields = ('email', 'first_name', 'handle')
     ordering = ['email']
 
 class CouponForm(forms.ModelForm):
@@ -42,7 +42,7 @@ class UserProfileInline(admin.StackedInline):
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'bio', 'avatar')
-    search_fields = ('user__email', 'user__first_name', 'user__last_name')
+    search_fields = ('user__email', 'user__first_name', 'user__handle')
 
 # Register the admin models
 admin.site.register(CustomUser, CustomUserAdmin)

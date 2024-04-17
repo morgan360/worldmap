@@ -12,11 +12,11 @@ from crispy_forms.layout import Div
 
 class CouponSignupForm(SignupForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'First name',
+        'placeholder': 'Name',
         'class': 'custom-font',
     }), required=True)
-    last_name = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Last name'}),
+    handle = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'Handle'}),
         required=True
     )
     keycode = forms.CharField(
@@ -31,7 +31,7 @@ class CouponSignupForm(SignupForm):
         self.helper.layout = Layout(
             Field('email', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full '),
             Field('first_name', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
-            Field('last_name', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Field('handle', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password1', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password2', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('keycode', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
