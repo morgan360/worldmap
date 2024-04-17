@@ -1,16 +1,91 @@
 <!-- content_framework.html -->
 {#<div class="text-center">#}
+
 <div>
-        <h2 class="text-2xl font-bold mb-4">Structural Goals</h2>
-              <p class="mb-4">1. Provide a data structure blueprint for capturing worlds and their content </p>
-              <p class="mb-4">2. Allow building of any fictional / history worlds with blueprint  </p>
-              <p class="mb-4">3. Make world files transferable across tools, games, devices and web </p>
+    <p class="mb-2">World building is, at its core, an activity of organizing creative data</p>
+    <p class="mb-2">There are countless ways to write, organize and display worlds: tools, apps, docs, wikis, websites</p>
+    <p class="mb-8">Most of these domains have limited options for exporting and transferring worlds effectively to others</p>
 
-   <h4 class="text-2xl font-bold mb-4">Intent</h4>
-          <p class="mb-4">  1. Core data structures are open source, free to use, and community-driven/p>
-          <p class="mb-4">  2. Users keep full ownership and control over their world data and visibility</p>
-          <p class="mb-4">  3. Allow any developers and artists to build into the framework, on whatever pricing model</p>
-          <p class="mb-4">  4. Promote collaborative development on the framework, its tools, its worlds</p>
-         <p class="mb-4">  5. Core OnlyWorlds applications are always free:  1 mobile, 1 desktop, 1 web</p>
+    <p class="mb-2">OnlyWorlds aims to define a common format for world building</p>
+    <p class="mb-6">As defined in these three key goals:</p>
+          <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">
+          <p class="mb-2">1. Provide a data structure 'blueprint' for creating worlds and their content </p>
+              <p class="mb-2">2. Allow users maximum flexibility and range in building worlds with this blueprint </p>
+              <p class="mb-2">3. Make world files transferable across tools, games, devices and web </p>
 
+    </div>
+    </div>
+
+
+
+
+<div class="mb-4"  id="accordion-collapse2" data-accordion="collapse">
+ <h2 id="accordion-collapse-heading-2" class="mb-4">
+    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+      Philosophy
+      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+</h2>
+  <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+     <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">
+           <p class="mb-2">1. Core data structures are open source, free to use, and community-driven</p>
+          <p class="mb-2">2. Users keep full ownership and control over their world data and visibility</p>
+          <p class="mb-2">3. Allow any developers and artists to build into the framework, on whatever pricing model</p>
+          <p class="mb-2">4. Promote collaborative development on the framework, its tools, its worlds</p>
+         <p class="mb-2">5. The framework should be as flexible and intuitive as possible, for the broadest range of fantasy and history worlds</p>
+
+    </div>
+  </div>
 </div>
+
+<div class="mb-4"  id="accordion-collapse3" data-accordion="collapse">
+ <h2 id="accordion-collapse-heading-3" class="mb-4">
+    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+       Implementation
+      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+</h2>
+
+  <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+    <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">
+      <p class="mb-2">1. Text</p>
+      <p class="mb-2">2. Text</p>
+    </div>
+  </div>
+</div>
+
+{#<div class="mb-4"  id="accordion-collapse4" data-accordion="collapse">#}
+{# <h2 id="accordion-collapse-heading-4" class="mb-4">#}
+{#    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">#}
+{#       Current Version: 0.14.30#}
+{#      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>#}
+{#    </button>#}
+{#</h2>#}
+{##}
+{#  <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">#}
+{#    <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">#}
+{#      <p class="mb-2">1. Text</p>#}
+{#      <p class="mb-2">2. Text</p>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('[data-accordion="collapse"]');
+  accordions.forEach(accordion => {
+    const mainButton = accordion.querySelector('[data-accordion-target]');
+    const expandIcon = accordion.querySelector('[data-accordion-icon]');
+    const collapseTarget = document.getElementById(mainButton.getAttribute('aria-controls'));
+
+    mainButton.addEventListener('click', () => {
+      const isExpanded = mainButton.getAttribute('aria-expanded') === 'true';
+      mainButton.setAttribute('aria-expanded', !isExpanded);
+      collapseTarget.classList.toggle('hidden');
+
+      expandIcon.classList.toggle('rotate-180', !isExpanded);
+    });
+  });
+});
+</script>
