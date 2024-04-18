@@ -1,23 +1,30 @@
-<!-- content_landing.html -->
 {% load static %}
 
-<div>
-      <p class="custom-font mb-2">9 April 2024</p>
-    <p class="custom-font mb-2">This is the first release of the <b><a href="#" id="link-to-framework" class="text-blue-500 hover:underline">OnlyWorlds Framework</a></b></p>
-    <p class="custom-font mb-2">With a mobile app linked below, and more in <b><a href="#" id="link-to-apps" class="text-blue-500 hover:underline">Applications</a></b> </p>
-    <p class="custom-font mb-2"><b><a href="#" id="link-to-worlds" class="text-blue-500 hover:underline">Worlds</a></b> can be imported, exported and stored on this site</p>
+<div class="custom-font mb-2">
+    <p>9 April 2024</p>
+    <p>OW version: 0.15.10</p>
+    <br>
+    <p>This is the first release of the <b><a href="#" id="link-to-framework" class="text-blue-500 hover:underline">OnlyWorlds Framework</a></b></p>
+    <p>Mobile app linked below, more in <b><a href="#" id="link-to-apps" class="text-blue-500 hover:underline">Applications</a></b></p>
+    <p><b><a href="#" id="link-to-worlds" class="text-blue-500 hover:underline">Worlds</a></b> can be stored and retrieved using this site</p>
 
-    <div class="flex flex-col items-center gap-4 mt-4">
-        <a href="https://testflight.apple.com/join/bXvUExCL" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10" target="_blank" rel="noopener noreferrer">
-            iOS Testflight
+
+  <br>
+  <br>
+    <div class="flex flex-row items-center gap-4 mt-4">
+        <a href="https://testflight.apple.com/join/bXvUExCL" target="_blank" rel="noopener noreferrer">
+            <img src="{% static 'img/icon-apple.png' %}" alt="iOS Testflight" style="height: 32px; width: auto;">
         </a>
-        <a href="https://play.google.com/apps/internaltest/4700705784602434522" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10" target="_blank" rel="noopener noreferrer">
-            Android APK
+        <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank" rel="noopener noreferrer">
+            <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 48px; width: auto;">
         </a>
     </div>
-  <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
-  <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-6">
-</a>
-
+      <br>
+  <br>
+           <div class="mt-4">
+        <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
+            <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-5">
+        </a>
+    </div>
 
 </div>
