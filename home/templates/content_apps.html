@@ -1,78 +1,174 @@
 <!-- content_apps.html -->
-{#<div class="text-center">#}
+{% load static %}
 
-<!-- content_framework.html -->
-{#<div class="text-center">#}
+<style>
+
+.no-background {
+    background: none !important; /* No background */
+    border: none !important; /* No border */
+    box-shadow: none !important; /* No box shadow */
+}
+
+/* Specific to accordion for visual hierarchy */
+.accordion-button {
+    background: transparent !important; /* Transparency for button */
+    color: #ADD8E6 !important; /* Adjust color as necessary */
+}
+
+.accordion-content {
+    padding: 0; /* Remove padding if needed */
+}
+
+.accordion-list-item {
+    list-style-type: disc; /* or 'none' if you prefer no bullets */
+    margin-left: 20px; /* Adjust indentation */
+}
+</style>
 
 
-<div class="mb-4" id="accordion-collapse11" data-accordion="collapse">
- <h2 id="accordion-collapse-heading-11" class="mb-4">
-    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-11" aria-expanded="false" aria-controls="accordion-collapse-body-11">
-      Companion App: android / iOs
+
+<div class="custom-font mb-2" id="accordion-collapsee11" data-accordion="collapsee">
+        <button type="button" class="text-[#2c9ac0] text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapsee-body-11" aria-expanded="false" aria-controls="accordion-collapsee-body-11">
+      (Mobile) Companion
       <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </button>
-</h2>
-  <div id="accordion-collapse-body-11" class="hidden" aria-labelledby="accordion-collapse-heading-11">
-     <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">
-        <p class="mb-2">The OnlyWorlds Companion app lets you define a world, create and configure elements in it, follow a progression system that aims to gamify and explain processes, and chat with AI agents that have some specialized world building skills</p>
-    <p class="mb-2">Now in alpha release phase one</p>
-    <p class="mb-8">There's lots of writing and rewriting to be done on the progression system so any feedback is welcome</p>
+    <div id="accordion-collapsee-body-11" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-11">
+          <p class="custom-font mb-5 text-sm" >Flutter project developed in 2023 and 2024 as a gamified mobile world creation interface</p>
+                 <p class="custom-font mb-2">Lets you define a world, create and configure elements in it, follow a progression system with some guides and rewards, and chat with AI agents that are specialized for world build assistance</p>
+    <p class="custom-font mb-2">Currently in internal testing environments for both iOs and android</p>
+    <p class="custom-font mb-8">All feedback is welcome: on stability, bugs, ui, content, database, ..</p>
 
-   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdY-47uxOUANZuhomPVOgpUB0AwSlub6MsPOWby1zcOukHhhg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" class="mb-4 text-[#c3ecfa] bg-[#2c9ac0] hover:bg-[#37c1f0] font-bold py-2 px-4 rounded">
-        Feedback Form
-    </a>
 
     </div>
-  </div>
 </div>
 
 
-<div class="mb-4"  id="accordion-collapse12" data-accordion="collapse">
- <h2 id="accordion-collapse-heading-12" class="mb-4">
-    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-12" aria-expanded="false" aria-controls="accordion-collapse-body-12">
-      Mapper: Desktop (Unity)
+<div class="custom-font mb-2" id="accordion-collapsee12" data-accordion="collapsee">
+        <button type="button" class="text-[#2c9ac0] text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapsee-body-12" aria-expanded="false" aria-controls="accordion-collapsee-body-12">
+      (Unity Editor) Mapper
       <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </button>
-</h2>
-  <div id="accordion-collapse-body-12" class="hidden" aria-labelledby="accordion-collapse-heading-12">
-     <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">
 
-   <p class="mb-2">1. Text</p>
-      <p class="mb-2">2. Text</p>
+    <div id="accordion-collapsee-body-12" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-12">
+          <p class="custom-font mb-1 text-sm">Unity project developed in early 2023 as an overall world 'engine'</p>
+          <p class="custom-font mb-5 text-sm">Repo and setup guide to be provided shortly (early May 2024) </p>
+
+
+            <p class="custom-font mb-3">Wrapper that replaces the entire Unity default editor, prior Unity experience is irrelevant</p>
+
+      <a href="{% static 'img/mapper.png' %}" target="_blank" class="inline-block mb-3">
+          <img src="{% static 'img/mapper.png' %}" alt="Mapper Preview" class="max-w-xs cursor-pointer">
+      </a>
+           <p class="custom-font">Four sections present a range of world controls:</p>
+             <ul class="custom-font accordion-content accordion-list-item">
+            <li>Finder (browsing the world)</li>
+            <li>Editor (viewing, editing elements)</li>
+            <li>Timeliner (graph node system)</li>
+            <li>Mapper (map management, element placement)</li>
+        </ul>
+        <br>
+               <p class="custom-font">Status per April 2024:</p>
+            <ul class="custom-font accordion-content accordion-list-item">
+            <li>Finder is functional</li>
+            <li>Editor is limited to core fields</li>
+            <li>Timeliner has just started development</li>
+            <li>Mapper is functional</li>
+        </ul>
+
+        <br>
+          <p class="custom-font">Now called Mapper for its most useful section: </p>
+               <ul class="custom-font accordion-content accordion-list-item">
+            <li>Maps can be added, saved and configured</li>
+            <li>Pins can be placed, moved, managed, and linked to elements</li>
+            <li>Map data is integrated to the world and exportable</li>
+        </ul>
+
+
+
     </div>
-  </div>
 </div>
-
-<div class="mb-4"  id="accordion-collapse13" data-accordion="collapse">
- <h2 id="accordion-collapse-heading-13" class="mb-4">
-    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-13" aria-expanded="false" aria-controls="accordion-collapse-body-13">
-       Explorer: Desktop & Web (Unity)
+<div class="custom-font mb-2" id="accordion-collapsee13" data-accordion="collapsee">
+        <button type="button" class="text-[#2c9ac0] text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapsee-body-13" aria-expanded="false" aria-controls="accordion-collapsee-body-13">
+      (Unity WebGL) Explorer
       <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </button>
-</h2>
+    <div id="accordion-collapsee-body-13" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-13">
 
-  <div id="accordion-collapse-body-13" class="hidden" aria-labelledby="accordion-collapse-heading-13">
-    <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">
-      <p class="mb-2">1. Text</p>
-      <p class="mb-2">2. Text</p>
+                  <p class="custom-font mb-1 text-sm">Unity runtime project for world (over)viewing that started development in 2024</p>
+                  <p class="custom-font mb-5 text-sm">Release in early summer</p>
+
+                  <p class="custom-font mb-1">Needs several more weeks of production for:</p>
+            <ul class="accordion-content accordion-list-item">
+            <li>A web-based interface that can load directly from world keys</li>
+            <li>Dynamically creates diagrams for element relations, ownership and assignment  </li>
+        </ul>
+
+
     </div>
-  </div>
+</div>
+<div class="custom-font mb-2" id="accordion-collapsee14" data-accordion="collapsee">
+        <button type="button" class="text-[#2c9ac0] text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapsee-body-14" aria-expanded="false" aria-controls="accordion-collapsee-body-14">
+      More Tools
+      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+    <div id="accordion-collapsee-body-14" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-14">
+
+                        <p class="custom-font mb-1">Priority:</p>
+            <ul class="accordion-content accordion-list-item">
+            <li>Desktop / web-based element editing interfaces (including on onlyworlds.com) </li>
+            <li>Mapping tools and a robust mapping data system (see Mapper for an early start) </li>
+            <li>Display tools for world viewing, article and page customization, network graphs, etc</li>
+        </ul>
+
+
+
+    </div>
 </div>
 
-{#<div class="mb-4"  id="accordion-collapse4" data-accordion="collapse">#}
-{# <h2 id="accordion-collapse-heading-4" class="mb-4">#}
-{#    <button type="button" class="text-white text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">#}
-{#       Current Version: 0.14.30#}
+
+{##}
+{#<div class="custom-font mb-4" id="accordion-collapsee5" data-accordion="collapsee">#}
+{#        <button type="button" class="text-[#2c9ac0] text-2xl font-bold rounded-lg px-5 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapsee-body-5" aria-expanded="false" aria-controls="accordion-collapsee-body-5">#}
+{#      Changelog#}
 {#      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>#}
 {#    </button>#}
-{#</h2>#}
 {##}
-{#  <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">#}
-{#    <div class="p-1 border border-gray-200 dark:border-gray-700 rounded-b-lg ">#}
-{#      <p class="mb-2">1. Text</p>#}
-{#      <p class="mb-2">2. Text</p>#}
+{#    <div id="accordion-collapsee-body-5" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-5">#}
+{##}
+{#             <p class="custom-font mb-2">18-04-2024    Version 0.15.10</p>#}
+{#        <ul class="accordion-content accordion-list-item">#}
+{#            <li>iOs / android stable</li>#}
+{#            <li>progression complete</li>#}
+{#            <li>AI work remains: parser mode, query creation</li>#}
+{#        </ul>#}
+{##}
+{#        <br>#}
+{#           <p class="custom-font mb-2">05-04-2024    Version 0.14.x</p>#}
+{#        <ul class="accordion-content accordion-list-item">#}
+{#            <li>iOs / android setup</li>#}
+{#            <li>essential bugfixes</li>#}
+{#            <li>fixing and finishing progression</li>#}
+{#        </ul>#}
 {#    </div>#}
-{#  </div>#}
 {#</div>#}
 
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('[data-accordion="collapsee"]');
+  accordions.forEach(accordion => {
+    const mainButton = accordion.querySelector('[data-accordion-target]');
+    const expandIcon = accordion.querySelector('[data-accordion-icon]');
+    const collapseeTarget = document.getElementById(mainButton.getAttribute('aria-controls'));
+
+    mainButton.addEventListener('click', () => {
+      const isExpanded = mainButton.getAttribute('aria-expanded') === 'true';
+      mainButton.setAttribute('aria-expanded', !isExpanded);
+      collapseeTarget.classList.toggle('hidden');
+
+      expandIcon.classList.toggle('rotate-180', !isExpanded);
+    });
+  });
+});
+</script>
