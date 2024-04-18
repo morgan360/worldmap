@@ -1,33 +1,35 @@
-<!-- content_landing.html -->
 {% load static %}
 
-<div>
-    <h2 class="text-2xl font-bold mb-4">Welcome to OnlyWorlds</h2>
-    <p class="mb-2">You are invited to engage with the OW <b><a href="#" id="link-to-framework" class="text-blue-500 hover:underline">Framework</a></b></p>
-
-{#    <p class="mb-8">See <b>Framework</b> for more details on what that means</p>#}
-
-    <p class="mb-2">This closed alpha precedes an open source release later this year</p>
-    <p class="mb-8">Following a rework and refinement of the framework through user feedback</p>
-
-    <p class="mb-2">The primary app for this is the iOs/android Companion app, link below </p>
-    <p class="mb-8">See the <b><a href="#" id="link-to-apps" class="text-blue-500 hover:underline">Applications</a></b> section for more details and feedback form</p>
-  <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
-  <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-6">
-</a>
-
-
-    <div class="flex flex-col items-center gap-4 mt-4">
-        <a href="https://testflight.apple.com/join/bXvUExCL" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10" target="_blank" rel="noopener noreferrer">
-            iOS Testflight
+<div class="custom-font mb-2">
+     <p class="text-sm">18 April 2024</p>
+     <p class="text-sm">OW version: 0.15.10</p>
+           <div class="flex items-center mt-0 gap-2">
+        <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
+            <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-4">
         </a>
-        <a href="https://play.google.com/apps/internaltest/4700705784602434522" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10" target="_blank" rel="noopener noreferrer">
-            Android APK
-        </a>
-
-
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdY-47uxOUANZuhomPVOgpUB0AwSlub6MsPOWby1zcOukHhhg/viewform?usp=sf_link" class="ml-2 inline-block text-m font-bold text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Feedback</a>
     </div>
+    <br>
+    <br>
+    <p class="mb-2">Welcome to the first release of the <b><a href="#" id="link-to-framework" class="text-blue-500 hover:underline">OnlyWorlds Framework</a></b></p>
+   <p class="mb-2"><b><a href="#" id="link-to-worlds" class="text-blue-500 hover:underline">Worlds</a></b> can be stored and retrieved on this server</p>
+    <p class="mb-2">Mobile app linked below, more info in <b><a href="#" id="link-to-apps" class="text-blue-500 hover:underline">Applications</a></b></p>
 
+
+  <br>
+  <br>
+    <div class="flex flex-row items-center gap-4 mt-4">
+        <a href="https://testflight.apple.com/join/bXvUExCL" target="_blank" rel="noopener noreferrer">
+            <img src="{% static 'img/icon-apple.png' %}" alt="iOS Testflight" style="height: 32px; width: auto;">
+        </a>
+        <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank" rel="noopener noreferrer">
+            <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 48px; width: auto;">
+        </a>
+    </div>
+      <br>
+      <br>
+      <br>
+  <br>
 
 
 </div>

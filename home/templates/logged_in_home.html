@@ -14,21 +14,20 @@
                         Home
                     </button>
                     <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="framework-tab" data-target="framework">
-                        Framework
+                        OnlyWorlds
                     </button>
                     <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="apps-tab" data-target="apps">
                         Applications
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="faqs-tab" data-target="faqs">
-                        FAQs
+                           <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="worlds-tab" data-target="worlds">
+                        Worlds
                     </button>
                     <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="profile-tab" data-target="profile">
                         Profile
                     </button>
-                    <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="worlds-tab" data-target="worlds">
-                        Worlds
- 
-                    </button> 
+                               <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" id="faqs-tab" data-target="faqs">
+                        FAQs
+                    </button>
 {#                    </button>#}
 {#                            <button class="tab text-gray-500 py-4 px-6 font-bold block hover:text-white focus:outline-none" data-target="policy">#}
 {#                        Privacy Policy#}
@@ -49,17 +48,14 @@
                 <!-- Include your apps content here -->
                  {% include 'content_apps.html' %}
             </div>
-       <div class="tab-content text-white p-4" id="faqs" style="display: none;">
-                <!-- Include your FAQs content here -->
-                 {% include 'content_FAQs.html' %}
-            </div>
+           <div class="tab-content text-white p-4" id="worlds" style="display: none;">
+                 {% include 'content_worlds.html' %}
+                    </div>
     <div class="tab-content text-white p-4" id="profile" style="display: none;">
                 <!-- Include your profile content here -->
                 {% include 'content_profile.html' %}
             </div>
-           <div class="tab-content text-white p-4" id="worlds" style="display: none;">
-                <!-- Include your worlds content here -->
-                 {% include 'content_worlds.html' %}
+
 {#            </div>#}
 {#                  <div class="tab-content text-white p-4" id="policy" style="display: none;">#}
 {#                <!-- Include your worlds content here -->#}
@@ -67,7 +63,11 @@
 {#            </div>#}
             <!-- More tab contents here -->
 
-        </div>
+
+                   <div class="tab-content text-white p-4" id="faqs" style="display: none;">
+                <!-- Include your FAQs content here -->
+                 {% include 'content_FAQs.html' %}
+            </div>
     </div>
   </div>
  <script>
