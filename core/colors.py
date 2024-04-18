@@ -1,1 +1,1 @@
-colors = {'label_color' : '#2687a8' ,'hover_button_color' : '#37c1f0' , 'button_text_color' : '#c3ecfa' ,'button_color' : '#2c9ac0' , 'dark_color' : '#164d60'}
+colors = {'label_color' : '#2687a8' ,'hover_button_color' : '#37c1f0' , 'button_text_color' : '#f3fbfe' ,'button_color' : '#2c9ac0' , 'dark_color' : '#164d60'}
