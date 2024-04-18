@@ -15,28 +15,38 @@ class CouponSignupForm(SignupForm):
         'placeholder': 'Name',
         'class': 'custom-font',
     }), required=True)
-    handle = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Handle'}),
-        required=True
-    )
+    # handle = forms.CharField(
+    #     widget=forms.TextInput(attrs={'placeholder': 'Handle'}),
+    #     required=True
+    # )
+    password1 = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Password (min. 8 digits)',
+        'class': 'custom-font',
+    }), required=True)
     keycode = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Keycode'}),
+        widget=forms.TextInput(attrs={'placeholder': 'Keycode',
+                                                     'class': 'custom-font',
+                                      }),
         required=True
     )
 
     def __init__(self, *args, **kwargs):
         super(CouponSignupForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].label = "Username"
+        self.fields['email'].label = "Email Address"
+        self.fields['password1'].label = "Password"
+        self.fields['password2'].label = "Password (repeat)"
         self.helper = FormHelper()
         self.helper.label_class = 'custom-font'
         self.helper.layout = Layout(
-            Field('email', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full '),
             Field('first_name', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
-            Field('handle', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
+            Field('email', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full '),
+            # Field('handle', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password1', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('password2', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Field('keycode', css_class='bg-gray-200 border-2 border-gray-300 rounded py-2 px-4 block w-full'),
             Div(
-                Submit('submit', 'Sign Up',
+                Submit('submit', 'Create Account',
                        css_class=f'bg-[{colors.colors["button_color"]}] hover:bg-[{colors.colors["hover_button_color"]}] text-[{colors.colors["button_text_color"]}] font-bold py-2 px-4 rounded mt-4'),
                 css_class='text-center')            )
         self.helper.label_class = f'text-[{colors.colors["label_color"]}] font-normal text-lg'

@@ -6,19 +6,19 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="custom-font mb-4">
-            <legend class="text-gray-400 text-lg font-bold mb-4 block">Name</legend>
+            <legend class="text-gray-400 text-lg font-bold mb-4 block">Username</legend>
             <label for="first_name" class="sr-only">{{ user.first_name }}</label>
             <div class="block w-full px-4 py-2 bg-gray-800 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300">
                 {{ user.first_name }}
             </div>
         </fieldset>
-        <fieldset class="custom-font mb-4">
-            <legend class="text-gray-400 text-lg font-bold mb-4 block">Handle</legend>
-            <label for="handle" class="sr-only">{{ user.handle }}</label>
-            <div class="block w-full px-4 py-2 bg-gray-800 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300">
-                {{ user.handle }}
-            </div>
-        </fieldset>
+{#        <fieldset class="custom-font mb-4">#}
+{#            <legend class="text-gray-400 text-lg font-bold mb-4 block">Handle</legend>#}
+{#            <label for="handle" class="sr-only">{{ user.handle }}</label>#}
+{#            <div class="block w-full px-4 py-2 bg-gray-800 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300">#}
+{#                {{ user.handle }}#}
+{#            </div>#}
+{#        </fieldset>#}
         <fieldset class="custom-font mb-4">
             <legend class="text-gray-400 text-lg font-bold mb-4 block">Email</legend>
             <label for="email" class="sr-only">{{ user.email }}</label>
