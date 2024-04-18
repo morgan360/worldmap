@@ -19,10 +19,6 @@ class CouponSignupForm(SignupForm):
     #     widget=forms.TextInput(attrs={'placeholder': 'Handle'}),
     #     required=True
     # )
-    password1 = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'Password (min. 8 digits)',
-        'class': 'custom-font',
-    }), required=True)
     keycode = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Keycode',
                                                      'class': 'custom-font',
@@ -34,7 +30,7 @@ class CouponSignupForm(SignupForm):
         super(CouponSignupForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].label = "Username"
         self.fields['email'].label = "Email Address"
-        self.fields['password1'].label = "Password"
+        self.fields['password1'].label = "Password (minimum: 8)"
         self.fields['password2'].label = "Password (repeat)"
         self.helper = FormHelper()
         self.helper.label_class = 'custom-font'
