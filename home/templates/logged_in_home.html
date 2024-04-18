@@ -97,6 +97,21 @@
             frameworkTab.click();
         });
     }
+    const linkToApps = document.getElementById('link-to-apps');
+    if (linkToApps) {
+        linkToApps.addEventListener('click', (e) => {
+            e.preventDefault();
+            const appsTab = document.getElementById('apps-tab');
+            appsTab.click();
+        });
+    } const linkToWorlds = document.getElementById('link-to-worlds');
+    if (linkToWorlds) {
+        linkToWorlds.addEventListener('click', (e) => {
+            e.preventDefault();
+            const worldsTab = document.getElementById('worlds-tab');
+            worldsTab.click();
+        });
+    }
 
     const initialActiveTab = document.querySelector('.tab-active') || tabButtons[0];
     if (!initialActiveTab.classList.contains('tab-active')) {
