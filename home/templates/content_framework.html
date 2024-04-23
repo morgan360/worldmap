@@ -3,55 +3,61 @@
 
 <style>
 
-.no-background {
-    background: none !important; /* No background */
-    border: none !important; /* No border */
-    box-shadow: none !important; /* No box shadow */
-}
+    .no-background {
+        background: none !important; /* No background */
+        border: none !important; /* No border */
+        box-shadow: none !important; /* No box shadow */
+    }
 
-/* Specific to accordion for visual hierarchy */
-.accordion-button {
-    background: transparent !important; /* Transparency for button */
-    color: #ADD8E6 !important; /* Adjust color as necessary */
-}
+    /* Specific to accordion for visual hierarchy */
+    .accordion-button {
+        background: transparent !important; /* Transparency for button */
+        color: #ADD8E6 !important; /* Adjust color as necessary */
+    }
 
-.accordion-content {
-    padding: 0; /* Remove padding if needed */
-}
+    .accordion-content {
+        padding: 0; /* Remove padding if needed */
+    }
 
-.accordion-list-item {
-    list-style-type: disc; /* or 'none' if you prefer no bullets */
-    margin-left: 20px; /* Adjust indentation */
-}
+    .accordion-list-item {
+        list-style-type: disc; /* or 'none' if you prefer no bullets */
+        margin-left: 20px; /* Adjust indentation */
+    }
 </style>
 
 <div class="custom-font mb-2" id="accordion-collapse1" data-accordion="collapse">
     <h2 id="accordion-collapse-heading-1" class="mb-2">
-            <button type="button" class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-1" aria-expanded="false" aria-controls="accordion-collapse-body-1">
-Overview
-      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-    </button>
+        <button type="button"
+                class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
+                data-accordion-target="#accordion-collapse-body-1" aria-expanded="false"
+                aria-controls="accordion-collapse-body-1">
+            Overview
+            <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
     </h2>
 
     <div id="accordion-collapse-body-1" class="hidden no-background" aria-labelledby="accordion-collapse-heading-1">
         <div class="accordion-content px-1">
-    <p class="custom-font mb-2">There are many tools that help write, organize and display worlds</p>
-    <p class="custom-font mb-6">But there are limited ways to transfer world data across applications</p>
+            <p class="custom-font mb-2">There are many tools that help write, organize and display worlds</p>
+            <p class="custom-font mb-6">But there are limited ways to transfer world data across applications</p>
 
-    <p class="custom-font mb-2">OnlyWorlds provides a common standard in world building through</p>
-               <ul class="custom-font accordion-content accordion-list-item">
-            <li>Proposing a 'blueprint' for worlds and their content</li>
-            <li>Supporting maximum diversity in worlds</li>
-            <li>Allowing transfer across tools, games, devices and websites</li>
-        </ul>
+            <p class="custom-font mb-2">OnlyWorlds provides a common standard in world building through</p>
+            <ul class="custom-font accordion-content accordion-list-item">
+                <li>Proposing a 'blueprint' for worlds and their content</li>
+                <li>Supporting maximum diversity in worlds</li>
+                <li>Allowing transfer across tools, games, devices and websites</li>
+            </ul>
             <br>
-    <p class="custom-font mb-2">The framework includes</p>
-                <ul class="custom-font accordion-content accordion-list-item">
-            <li>A universal database schema</li>
-            <li>Infrastructure for open source development and deployment</li>
-            <li>A website for hosting and managing worlds</li>
-            <li>A set of core world creation tools </li>
-        </ul>
+            <p class="custom-font mb-2">The framework includes</p>
+            <ul class="custom-font accordion-content accordion-list-item">
+                <li>A universal database schema</li>
+                <li>Infrastructure for open source development and deployment</li>
+                <li>A website for hosting and managing worlds</li>
+                <li>A set of core world creation tools</li>
+            </ul>
             <br>
 
         </div>
@@ -59,14 +65,20 @@ Overview
 </div>
 
 <div class="custom-font mb-4" id="accordion-collapse2" data-accordion="collapse">
-        <button type="button" class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-      Philosophy
-      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <button type="button"
+            class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
+            data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
+            aria-controls="accordion-collapse-body-2">
+        Philosophy
+        <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
     </button>
 
     <div id="accordion-collapse-body-2" class="hidden no-background" aria-labelledby="accordion-collapse-heading-2">
-   <ul class="custom-font accordion-content accordion-list-item">
-       <li>An open source, community-driven and future proof data system</li>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>An open source, community-driven and future proof data system</li>
             <li>Freedom to build applications and tools that expand the framework</li>
             <li>Ownership and control of worlds remains yours</li>
         </ul>
@@ -75,47 +87,70 @@ Overview
 
 
 <div class="custom-font mb-4" id="accordion-collapse4" data-accordion="collapse">
-        <button type="button" class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
-      Background
-      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <button type="button"
+            class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
+            data-accordion-target="#accordion-collapse-body-4" aria-expanded="false"
+            aria-controls="accordion-collapse-body-4">
+        Background
+        <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
     </button>
     <div id="accordion-collapse-body-4" class="hidden no-background" aria-labelledby="accordion-collapse-heading-4">
 
-           <p class="custom-font">I have been developing world building tools in various capacities since 2011.
-               Much of this in Unity, with a highlight in <a href="https://github.com/worldsmithdev/Worldsmith" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">WorldSmith</a> in 2018:
-              An open source world engine with a <a href="https://imgur.com/XsVQU7W" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">world</a> (Sicily ~500BC), <a href="https://imgur.com/XsVQU7W" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer"> economy</a>, and game built on top of it.
-<br>
-         My interests include ((tools for (simulation of)) worlds for) games and history: political, economy, military.
-<br>
-          I wrote my <a href="https://theses.liacs.nl/pdf/2021-2022-OostingTitus.pdf" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">master's thesis</a> on the <a href="https://github.com/tmoosting/Schemer" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">translation of political dynamics</a> into world building structures
-</p>
+        <p class="custom-font">I have been developing world building tools in various capacities since 2011.
+            Much of this in Unity, with a highlight in <a href="https://github.com/worldsmithdev/Worldsmith"
+                                                          class="text-blue-500 hover:underline" target="_blank"
+                                                          rel="noopener noreferrer">WorldSmith</a> in 2018:
+            An open source world engine with a <a href="{% url 'sikelia_webgl' %}" class="text-blue-500 hover:underline"
+                                                  target="_blank" rel="noopener noreferrer">world</a> (Sicily ~500BC),
+        economy, and game built on top of it.
+            <br>
+            My interests include ((tools for (simulation of)) worlds for) games and history: political, economy,
+            military.
+            <br>
+            I wrote my <a href="https://theses.liacs.nl/pdf/2021-2022-OostingTitus.pdf"
+                          class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">master's
+                thesis</a> on the <a href="https://github.com/tmoosting/Schemer" class="text-blue-500 hover:underline"
+                                     target="_blank" rel="noopener noreferrer">translation of political dynamics</a>
+            into world building structures.
+        </p>
 
     </div>
 </div>
 
 
-
 <div class="custom-font mb-4" id="accordion-collapse3" data-accordion="collapse">
-        <button type="button" class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
-      Development
-      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <button type="button"
+            class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
+            data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
+            aria-controls="accordion-collapse-body-3">
+        Development
+        <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
     </button>
 
     <div id="accordion-collapse-body-3" class="hidden no-background" aria-labelledby="accordion-collapse-heading-3">
-          <p class="text-sm">Updated: 18 April 2024</p>
+        <p class="text-sm">Updated: 18 April 2024</p>
         <br>
-             <p class="custom-font mb-2"><b>Database</b></p>
-           <ul class="custom-font accordion-content accordion-list-item">
-            <li>The core framework consists of 18 element Categories, each with a set of attribute groups and fields, many of which link to other elements</li>
+        <p class="custom-font mb-2"><b>Database</b></p>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>The core framework consists of 18 element Categories, each with a set of attribute groups and fields,
+                many of which link to other elements
+            </li>
             <li>Content level: basic data formulation in place, in need of user feedback</li>
             <li>Technical level: reworking the legacy SQLite systems into a central open source</li>
             <li>Aim to coalesce these two into a 1.0 release late 2024</li>
 
-        </ul>     <br>
+        </ul>
+        <br>
 
 
-             <p class="custom-font mb-2"><b>Mobile</b></p>
-           <ul class="custom-font accordion-content accordion-list-item">
+        <p class="custom-font mb-2"><b>Mobile</b></p>
+        <ul class="custom-font accordion-content accordion-list-item">
             <li>The mobile app is the first release on the framework</li>
             <li>It is a prototype that introduces the framework in hope for feedback</li>
             <li>The app can send its worlds to the website, from where it can be viewed and exported</li>
@@ -123,8 +158,8 @@ Overview
 
         <br>
 
-<p class="mb-2"><b>Infrastructure</b></p>
-          <ul class="custom-font accordion-content accordion-list-item">
+        <p class="mb-2"><b>Infrastructure</b></p>
+        <ul class="custom-font accordion-content accordion-list-item">
             <li>Functional: user registration, authentication, world api</li>
             <li>Next work is on profile management, world interfacing</li>
             <li>Two Unity tools (editor, WebGL) are operational with the api, shortly available</li>
@@ -134,14 +169,20 @@ Overview
 </div>
 
 <div class="custom-font mb-4" id="accordion-collapse5" data-accordion="collapse">
-        <button type="button" class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between" data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
-      Changelog
-      <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <button type="button"
+            class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
+            data-accordion-target="#accordion-collapse-body-5" aria-expanded="false"
+            aria-controls="accordion-collapse-body-5">
+        Changelog
+        <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
     </button>
 
     <div id="accordion-collapse-body-5" class="hidden no-background" aria-labelledby="accordion-collapse-heading-5">
 
-             <p class="custom-font mb-2">18-04-2024    Version 0.15.10</p>
+        <p class="custom-font mb-2">18-04-2024 Version 0.15.10</p>
         <ul class="custom-font accordion-content accordion-list-item">
             <li>iOs / android stable</li>
             <li>progression complete</li>
@@ -149,7 +190,7 @@ Overview
         </ul>
 
         <br>
-           <p class="custom-font mb-2">05-04-2024    Version 0.14.x</p>
+        <p class="custom-font mb-2">05-04-2024 Version 0.14.x</p>
         <ul class="custom-font accordion-content accordion-list-item">
             <li>iOs / android setup</li>
             <li>essential bugfixes</li>
@@ -160,20 +201,20 @@ Overview
 
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const accordions = document.querySelectorAll('[data-accordion="collapse"]');
-  accordions.forEach(accordion => {
-    const mainButton = accordion.querySelector('[data-accordion-target]');
-    const expandIcon = accordion.querySelector('[data-accordion-icon]');
-    const collapseTarget = document.getElementById(mainButton.getAttribute('aria-controls'));
+    document.addEventListener('DOMContentLoaded', () => {
+        const accordions = document.querySelectorAll('[data-accordion="collapse"]');
+        accordions.forEach(accordion => {
+            const mainButton = accordion.querySelector('[data-accordion-target]');
+            const expandIcon = accordion.querySelector('[data-accordion-icon]');
+            const collapseTarget = document.getElementById(mainButton.getAttribute('aria-controls'));
 
-    mainButton.addEventListener('click', () => {
-      const isExpanded = mainButton.getAttribute('aria-expanded') === 'true';
-      mainButton.setAttribute('aria-expanded', !isExpanded);
-      collapseTarget.classList.toggle('hidden');
+            mainButton.addEventListener('click', () => {
+                const isExpanded = mainButton.getAttribute('aria-expanded') === 'true';
+                mainButton.setAttribute('aria-expanded', !isExpanded);
+                collapseTarget.classList.toggle('hidden');
 
-      expandIcon.classList.toggle('rotate-180', !isExpanded);
+                expandIcon.classList.toggle('rotate-180', !isExpanded);
+            });
+        });
     });
-  });
-});
 </script>

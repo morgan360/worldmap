@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  
+   <title>Sicily 510 BC</title>
+    <!-- Required meta tags -->
+       <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
+    </script>
+	
+	
+	<style>
+.nav-tabs > li {
+ background-color: #b0e0f2;
+  color: black;
+    float:none;
+    display:inline-block; 
+	 border: 1px solid black;  
+	 
+}
+.active a { 
+    text-align:center;
+	font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+   color: black;
+}
+.nav a:hover {
+  background: #ffffff !important;
+}
+
+.nav-tabs {
+    text-align:center;  
+	font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+   color: black;
+}
+p {
+font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+h1{
+font-family: "Times New Roman", Times, serif;
+  font-size: 35px;
+  color: white;
+}
+h2 {
+font-family: "Times New Roman", Times, serif;
+  font-size: 19px; 
+} 
+ h3 {
+font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+} 
+#wrapper { 
+  text-align: center;
+} 
+#topdivvie { 
+	 width: 520px ;
+	  height: 162px ;
+	display: inline-block;
+	 
+}
+#divvie {
+   border: 4px solid black;
+     padding-left: 4px;
+	 padding-top: -4px;
+	 padding-bottom: 20px;
+	 background: #ebf6eb;	  
+	 background-position: 58.33325% center;
+}
+ #subdivvie {
+   border: 1px solid black; 
+	 background: #b0e0f2;	 
+}
+body  {
+  height:100%; 
+    background-color: #2fa8a8; 
+}
+
+ 
+  .bottom-align-text {
+    position: absolute; 
+    right: 2;
+  }
+  
+		</style>
+
+
+
+
+	</head>
+	<body > 
+       
+      
+	
+
+ <span >  	  <div class="container text-left">
+
+ <br>
+<!-- Page Header -->	
+<div id="wrapper">    
+    <div id="topdivvie"> 
+	<center><h2>Please wait to load. Hold right mouse to pan, scroll to zoom</h2></center>	
+<center><b><h3>Locations - Highlights - Culture </b></h3></center>
+<center>Blue: Greek, Green: Sikel, Yellow: Sikan, Red: Elymi</center>	
+	<center><b><h3>Click Settlement - Overview - Schematic Icons</b></h3></center>
+<center>Hover & click for information on rulership, population, resources, territory etc.</center>
+<center><b><h3>Economics - Exchange - Flow Next</b></h3></center>
+<center>Simulate 1 month and visualize clickable resource exchanges</center>
+	<br><br>
+ </div>
+</div>
+<br>
+
+
+     <div class="tabbable">  
+   
+      <div class="tab-content">
+	  
+	  
+    
+	  	<!-- Tab 1-->
+        <div class="tab-pane active" id="tab1" >	
+		<div id="divvie">
+
+	 <br> 
+	 <center> <div class="webgl-content">
+   <div id="unityContainer" style="width: 824px; height: 560px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div> 
+    </div>
+
+
+			
+		</div>	 
+		
+        </div>
+ </center>
+    
+ 
+
+ 
+			
+		 	
+		
+		 </div>
+		  <!-- Section content-->
+      </div>
+	 
+	 
+
+	  
+    </div>
+         
+		 
+		 
+		
+   
+
+	
+	
+	</span>
+<br><br>
+</body>
+</html>

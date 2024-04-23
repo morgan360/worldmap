@@ -17,6 +17,8 @@ def home(request):
 def privacy_policy(request):
     return render(request, 'policy.html')
 
+
+
 def my_view(request):
     # Your existing view logic
     colors = {
@@ -71,3 +73,7 @@ def submit_contact_form(request):
 def thanks_view(request):
     # Render the 'contact_thanks.html' template
     return render(request, 'contact_thanks.html')
+
+
+def webgl(request):
+    return HttpResponseRedirect('/static/webgl/index.html')
