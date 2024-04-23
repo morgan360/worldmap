@@ -1,42 +1,65 @@
 {% load static %}
 
 <div class="custom-font mb-2">
-{#     <p class="text-sm">18 April 2024</p>#}
-{#     <p class="text-sm">OW version: 0.15.10</p>#}
+    {#     <p class="text-sm">18 April 2024</p>#}
+    {#     <p class="text-sm">OW version: 0.15.10</p>#}
     <br>
-    <p class="mb-2">Welcome to the first release of the <b><a href="#" id="link-to-framework" class="text-blue-500 hover:underline">OnlyWorlds Framework</a></b></p>
-   <p class="mb-2"><b><a href="#" id="link-to-worlds" class="text-blue-500 hover:underline">Worlds</a></b> can be stored and retrieved on this server</p>
-    <p class="mb-2">Mobile app linked below, more info in <b><a href="#" id="link-to-apps" class="text-blue-500 hover:underline">Applications</a></b></p>
+    <p class="mb-2">Welcome to the first release of the <b><a href="#" id="link-to-framework"
+                                                              class="text-blue-500 hover:underline">OnlyWorlds
+        Framework</a></b></p>
+    <p class="mb-2"><b><a href="#" id="link-to-worlds" class="text-blue-500 hover:underline">Worlds</a></b> can be
+        stored and retrieved on this server</p>
+    <p class="mb-2">Access the mobile app through the icons below. More info in <b><a href="#" id="link-to-apps"
+                                                                class="text-blue-500 hover:underline">Applications</a></b>
+    </p>
+    <div>
+
+    </div>
+    <br>
+       <a href="https://testflight.apple.com/join/bXvUExCL" target="_blank" rel="noopener noreferrer">
+            <img src="{% static 'img/icon-apple.png' %}" alt="iOS Testflight" style="height: 32px; width: auto;" class="ml-2">
+        </a>
+        <p class="mt-2">iOs version is staged in TestFlight. Follow steps to install TestFlight first, then open link again</p>
+        <br>
+
+      <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank"
+           rel="noopener noreferrer">
+            <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 48px; width: auto;" >
+        </a>
+
+    <p class="mb-1">Android version is in closed testing. To access through this channel:
+        Please send any google email, with 'android' as message, on the <a href="https://www.onlyworlds.com/about/"
+                                                     class="inline-block text-m font-bold text-blue-500 hover:underline"
+                                                     target="_blank" rel="noopener noreferrer">About page</a>. You will receive an access notification within 24 hours</p>
+        <p class="mb-8">Or directly download and manually install the APK file <a href="https://drive.google.com/file/d/1DQk8-wbfz74HXzW8S3gafP5PxlcF4iWd/view?usp=sharing"
+                                                     class="inline-block text-m font-bold text-blue-500 hover:underline"
+                                                     target="_blank" rel="noopener noreferrer">here</a></p>
 
 
-              <div>
-
-     </div>
-  <br>
-
-
-    <div class="flex flex-row items-center gap-4 mt-4">
+         <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
+            <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="ml-2 w-8">
+        </a>
+           <p class="mt-1">Join the Discord server to provide feedback and contribute to the project</p>
+{% comment %}    <div class="flex flex-row items-center gap-4 mt-4">
         <a href="https://testflight.apple.com/join/bXvUExCL" target="_blank" rel="noopener noreferrer">
             <img src="{% static 'img/icon-apple.png' %}" alt="iOS Testflight" style="height: 32px; width: auto;">
         </a>
-        <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank" rel="noopener noreferrer">
+        <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank"
+           rel="noopener noreferrer">
             <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 48px; width: auto;">
         </a>
-           <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
+        <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
             <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-8">
         </a>
-    </div>
-      <br>
+    </div>{% endcomment %}
+    <br>
+    <br>
 
-    <p class="mb-2 text-sm">Android is in closed testing and requires email.
-    Please send me one or use the form on the <a href="https://www.onlyworlds.com/about/" class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">About page</a></p>
-    <p class="mb-2 text-sm">iOs is in TestFlight. Follow steps to install, then open app</p>
+    <div>
 
-      <br>
-
-     <div>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdY-47uxOUANZuhomPVOgpUB0AwSlub6MsPOWby1zcOukHhhg/viewform?usp=sf_link" class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Feedback Form</a>
+        <a href="https://forms.gle/W618BZguPaRDyj6S7"
+           class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
+           rel="noopener noreferrer">Feedback Form</a>
     </div>
 
 </div>
