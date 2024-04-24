@@ -40,26 +40,20 @@
             <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-8">
         </a>
            <p class="mt-1">Join the Discord server to provide feedback and contribute to the project</p>
-{% comment %}    <div class="flex flex-row items-center gap-4 mt-4">
-        <a href="https://testflight.apple.com/join/bXvUExCL" target="_blank" rel="noopener noreferrer">
-            <img src="{% static 'img/icon-apple.png' %}" alt="iOS Testflight" style="height: 32px; width: auto;">
-        </a>
-        <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank"
-           rel="noopener noreferrer">
-            <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 48px; width: auto;">
-        </a>
-        <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
-            <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="w-8">
-        </a>
-    </div>{% endcomment %}
+
     <br>
     <br>
 
     <div>
-
         <a href="https://forms.gle/W618BZguPaRDyj6S7"
            class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
            rel="noopener noreferrer">Feedback Form</a>
     </div>
-
+        <br>
+    <br>
+    <div>
+        <a href="{% url 'unity' %}"
+           class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
+           rel="noopener noreferrer">Unity</a>
+    </div>
 </div>

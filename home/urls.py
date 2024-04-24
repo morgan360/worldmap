@@ -12,4 +12,5 @@ urlpatterns = [
     path('contact/thanks/', thanks_view, name='contact_thanks'),
     path('privacypolicy/', privacy_policy, name='privacy_policy'),
     path('webgl/', views.webgl, name='sikelia_webgl'),
+    path('unity/', views.unity, name='unity'),
 ]
