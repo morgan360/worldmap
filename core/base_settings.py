@@ -35,7 +35,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 SECRET_KEY = 'django-insecure-cre4_36u$tp*u=-aay!1qdc!qkfhg2+%%a!a$)($_lyfys)#6$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

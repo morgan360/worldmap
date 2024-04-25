@@ -79,5 +79,5 @@ def webgl(request):
     return HttpResponseRedirect('/static/webgl/index.html')
 
 
-def unity(request):
-    return HttpResponseRedirect('/static/unity/index.html')
+def explorer(request):
+    return HttpResponseRedirect('/static/explorer/index.html')
