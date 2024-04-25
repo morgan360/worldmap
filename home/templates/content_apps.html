@@ -38,17 +38,22 @@
         </svg>
     </button>
     <div id="accordion-collapsee-body-11" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-11">
-        <p class="custom-font mb-5">Flutter project developed in 2023 and 2024 as a gamified mobile world creation
-            interface</p>
+        <p class="custom-font mb-5">Flutter project developed in 2023 and 2024 as a mobile world creation
+            interface that helps introduce the framework with some gamification and novel features</p>
         <p class="custom-font mb-2">Lets you define a world, create and configure elements in it, follow a progression
             system with some guides and rewards, and chat with AI agents that are specialized for world build
             assistance</p>
         <p class="custom-font mb-2">Currently in internal testing environments for both iOs and android</p>
-        <p class="custom-font mb-8">All feedback is welcome: on stability, bugs, UI/UX, content, database, etc.</p>
-        <a href="{% static 'img/companion.jpeg' %}" target="_blank" class="inline-block mb-3">
-            <img src="{% static 'img/companion.jpeg' %}" alt="Companion Preview" class="max-w-xs cursor-pointer">
+        <a href="{% static 'img/companion.jpeg' %}" target="_blank" style="width: 50px;" class="inline-block mb-3">
+   <img src="{% static 'img/companion.jpeg' %}" alt="Companion Preview" style="width: 350px" class="cursor-pointer">
         </a>
-
+       <p class="custom-font">Known bugs and limitations:</p>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>Number fields only hold positive integer values at this time</li>
+            <li>Time settings are limited, and no such settings exist for weight, height, other units</li>
+            <li>Golden fields do not properly split linked elements</li>
+            <li>Elements with duplicate names cause issues when being linked</li>
+        </ul>
     </div>
 </div>
 
