@@ -1,9 +1,9 @@
 const cacheName = "OnlyWorlds-Explorer-0.16";
 const contentToCache = [
     "Build/OWExplorer.loader.js",
-    "Build/OWExplorer.framework.js.gz",
-    "Build/OWExplorer.data.gz",
-    "Build/OWExplorer.wasm.gz",
+    "Build/OWExplorer.framework.js",
+    "Build/OWExplorer.data",
+    "Build/OWExplorer.wasm",
     "TemplateData/style.css"
 
 ];
