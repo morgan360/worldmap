@@ -6,7 +6,9 @@
     flex-wrap: nowrap;
     overflow-x: auto;
 }
-
+.border-b-2.border-blue-500.overflow-x-auto {
+    overflow-y: hidden; /* Hide vertical scrollbar if it's not needed */
+}
 .tab {
     flex: 0 0 auto;
     white-space: nowrap;
@@ -18,7 +20,7 @@
         <div class="min-h-[500px] md:max-w-4xl rounded overflow-hidden shadow-lg my-4 mx-auto bg-slate-800">
 
             <!-- Tab headers -->
-            <div class="border-b-2 border-blue-500 overflow-x-auto">
+            <div class="border-b-2 border-blue-500 overflow-x-auto overflow-y-hidden">
                 <nav class="flex flex-nowrap -mb-px">
                     <button class="tab text-gray-500 py-4 px-6 font-bold hover:text-white focus:outline-none whitespace-nowrap" id="landing-tab" data-target="landing">
                         Home
