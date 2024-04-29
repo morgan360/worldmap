@@ -41,30 +41,35 @@
 
     <div id="accordion-collapse-body-1" class="hidden no-background" aria-labelledby="accordion-collapse-heading-1">
         <div class="accordion-content px-1">
-            <p class="custom-font mb-2">There are many tools that help write, organize and display worlds</p>
-            <p class="custom-font mb-6">But there are limited ways to transfer world data across applications</p>
+            <p class="custom-font mb-2">There are many tools that help write, organize and display worlds, but there are
+                limited ways to transfer world data across applications.</p>
 
-            <p class="custom-font mb-2">OnlyWorlds provides a common standard in world building through</p>
-            <ul class="custom-font accordion-content accordion-list-item">
-                <li>Proposing a 'blueprint' for worlds and their content</li>
-                <li>Supporting maximum diversity in worlds</li>
-                <li>Allowing transfer across tools, games, devices and websites</li>
+            <p class="custom-font mb-2">OnlyWorlds provides a common standard in world building. This 'blueprint'
+                supports the widest range of worlds and
+                provides data points that can be used in code.</p>
+
+            <p class="custom-font">So that you are able to</p>
+            <ul class="mb-4 custom-font accordion-content accordion-list-item">
+                <li>Write content in your favorite writing tool</li>
+                <li>Export to a specialized mapping tool to lay out the world</li>
+                <li>Send to another application to create display pages and share content</li>
+                <li>Load the world into an exploration or simulation game</li>
             </ul>
-            <br>
-            <p class="custom-font mb-2">The framework includes</p>
-            <ul class="custom-font accordion-content accordion-list-item">
-                <li>A universal database schema</li>
+
+            <p class="custom-font mb-0">The framework currently includes</p>
+           <ul class="mb-4 custom-font accordion-content accordion-list-item">
                 <li>Infrastructure for open source development and deployment</li>
-                <li>A website for hosting and managing worlds</li>
-                <li>A set of core world creation tools</li>
+                <li>Infrastructure for hosting and managing worlds</li>
+                <li>A core set of free creation tools</li>
+                <li>The 'blueprint' as a database schema</li>
+
             </ul>
-            <br>
-                <p class="custom-font mb-2">This database schema breaks down world data through several levels:</p>
-   <ul class="custom-font accordion-content accordion-list-item">
-        <li>18 essential element categories</li>
-        <li>Groups and fields to define and link them</li>
-        <li>Types and subtypes to classify and organize them</li>
-    </ul>
+            <p class="custom-font mb-0">This database schema defines how a world is broken down to data that includes:</p>
+            <ul class="custom-font accordion-content accordion-list-item">
+                <li>18 element categories</li>
+                <li>Groups and fields to define and integrate them</li>
+                <li>A type and subtype system to classify and organize them</li>
+            </ul>
 
         </div>
     </div>
@@ -84,9 +89,9 @@
 
     <div id="accordion-collapse-body-2" class="hidden no-background" aria-labelledby="accordion-collapse-heading-2">
         <ul class="custom-font accordion-content accordion-list-item">
-            <li>An open source, community-driven and future proof data system</li>
-            <li>Freedom to build applications and tools that expand the framework</li>
-            <li>Ownership and control of worlds remains yours</li>
+            <li>Open source, free to use, and community-defined</li>
+            <li>Support any and all third party development, integration, collaboration </li>
+            <li>Users keep complete ownership and control of their worlds</li>
         </ul>
     </div>
 </div>
@@ -105,20 +110,25 @@
     </button>
     <div id="accordion-collapse-body-4" class="hidden no-background" aria-labelledby="accordion-collapse-heading-4">
 
-        <p class="custom-font">I have been developing world building tools in various capacities since 2011.
+        <p class="custom-font">I have been developing world building tools from a game developer perspective since 2011.
             Much of this in Unity, with a highlight in <a href="https://github.com/worldsmithdev/Worldsmith"
                                                           class="text-blue-500 hover:underline" target="_blank"
                                                           rel="noopener noreferrer">WorldSmith</a> in 2018:
-            An open source world engine where I recreated <a href="{% url 'sikelia_webgl' %}" class="text-blue-500 hover:underline"
-                                                  target="_blank" rel="noopener noreferrer">ancient Sicily of ~500BC</a> with an economy simulation and game built on top.
+            An open source world engine where I recreated <a href="{% url 'sikelia_webgl' %}"
+                                                             class="text-blue-500 hover:underline"
+                                                             target="_blank" rel="noopener noreferrer">ancient Sicily of
+                ~500BC</a> with a functional economy simulation and game built on top.
             <br>
-            My interests include ((tools for (simulation of)) worlds for) games and history: political, economy,
-            military.
+            My interests include ((tools for (simulation of)) worlds for) games, and history: political, economy,
+            military, ancient.
             <br>
-            One of my favorite creative puzzles is breaking down real world things into usable data. In my <a href="https://theses.liacs.nl/pdf/2021-2022-OostingTitus.pdf"
-                          class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">master's
-                thesis</a> I focused on the <a href="https://github.com/tmoosting/Schemer" class="text-blue-500 hover:underline"
-                                     target="_blank" rel="noopener noreferrer">translation of political dynamics</a>
+            Among my favorite technical-creative domains is this breaking down of real world concepts and dynamics into workable data. In my <a
+                    href="https://theses.liacs.nl/pdf/2021-2022-OostingTitus.pdf"
+                    class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">master's
+                thesis</a> I explored the <a href="https://github.com/tmoosting/Schemer"
+                                               class="text-blue-500 hover:underline"
+                                               target="_blank" rel="noopener noreferrer">translation of political
+                dynamics</a>
             into world building structures.
         </p>
 
@@ -131,7 +141,7 @@
             class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
             data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
             aria-controls="accordion-collapse-body-3">
-        Development
+        State of Development
         <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
              xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -139,38 +149,37 @@
     </button>
 
     <div id="accordion-collapse-body-3" class="hidden no-background" aria-labelledby="accordion-collapse-heading-3">
-        <p class="text-sm">Updated: 18 April 2024</p>
+        <p class="text-sm">Updated: 29 April 2024</p>
         <br>
         <p class="custom-font mb-2"><b>Database</b></p>
         <ul class="custom-font accordion-content accordion-list-item">
-            <li>Content level: basic data formulation in place, in need of user feedback</li>
-            <li>Technical level: reworking the legacy SQLite systems into a central open source</li>
+            <li>Content: basic data formulation in place, in need of user feedback</li>
+            <li>Technical: reworking the legacy SQLite JSON systems into a proper open source repo</li>
             <li>Aim to coalesce these two into a 1.0 release late 2024</li>
 
         </ul>
         <br>
-
-
-        <p class="custom-font mb-2"><b>Mobile</b></p>
+        <p class="custom-font mb-0"><b>Mobile Companion</b></p>
         <ul class="custom-font accordion-content accordion-list-item">
-            <li>The mobile app is the first release on the framework</li>
-            <li>It is a prototype that introduces the framework in hope for feedback</li>
-            <li>The app can send its worlds to the website, from where it can be viewed and exported</li>
+            <li>World creation, import/export, and progression complete</li>
+            <li>AI assistance prototype is functional, not finished</li>
         </ul>
-
         <br>
-
-        <p class="mb-2"><b>Infrastructure</b></p>
+   <p class="custom-font mb-0"><b>Explorer</b></p>
         <ul class="custom-font accordion-content accordion-list-item">
-            <li>Functional: user registration, authentication, world api</li>
-            <li>Next work is on profile management, world interfacing</li>
-            <li>Two Unity tools (editor, WebGL) are operational with the api, shortly available</li>
-            <li>Discord server available for feedback and community</li>
+            <li>World import, export, viewing functional</li>
+            <li>Element field editing ETA early May 2024</li>
+        </ul>
+        <br>
+        <p class="mb-0"><b>Mapper</b></p>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>World import, map and pin placement functional</li>
+            <li>World export and saving needs rework, ETA late May 2024</li>
         </ul>
     </div>
 </div>
 
-<div class="custom-font mb-4" id="accordion-collapse5" data-accordion="collapse">
+{% comment %}<div class="custom-font mb-4" id="accordion-collapse5" data-accordion="collapse">
     <button type="button"
             class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
             data-accordion-target="#accordion-collapse-body-5" aria-expanded="false"
@@ -184,13 +193,20 @@
 
     <div id="accordion-collapse-body-5" class="hidden no-background" aria-labelledby="accordion-collapse-heading-5">
 
+            <p class="custom-font mb-2">18-04-2024 Version 0.16.00</p>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>iOs / android release fixes</li>
+            <li>progression complete</li>
+            <li>AI work remains: parser mode, query creation</li>
+        </ul>
+        <br>
+        <p class=
         <p class="custom-font mb-2">18-04-2024 Version 0.15.10</p>
         <ul class="custom-font accordion-content accordion-list-item">
             <li>iOs / android stable</li>
             <li>progression complete</li>
             <li>AI work remains: parser mode, query creation</li>
         </ul>
-
         <br>
         <p class="custom-font mb-2">05-04-2024 Version 0.14.x</p>
         <ul class="custom-font accordion-content accordion-list-item">
@@ -199,7 +215,7 @@
             <li>fixing and finishing progression</li>
         </ul>
     </div>
-</div>
+</div>{% endcomment %}
 
 
 <script>

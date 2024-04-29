@@ -7,39 +7,40 @@
 
     <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Welcome to OnlyWorlds</h3>
 
-    <p class="custom-font mt-4 mb-2">Introducing a world building system where worlds can be</p>
+    <p class="custom-font mt-4 mb-2">Introducing a world building framework where worlds can be</p>
     <ul class="custom-font accordion-content accordion-list-item">
-        <li>Created and edited by varying apps, tools and websites</li>
-        <li>Brought to life through games and simulations</li>
-        <li>Easily transferred and managed</li>
+        <li>Created and edited by any app, tool or website that supports the format</li>
+        <li>Easily transferred and managed across them</li>
+        <li>Brought to life in games and simulations</li>
+
     </ul>
-<p class="custom-font mt-3 mb-5">You are invited to try the platform and support its development!</p>
+<p class="custom-font mt-5 mb-1">You are invited to try the platform and help give it shape!</p>
 
-    <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Next Steps</h3>
+{% comment %}    <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">What's Next</h3>{% endcomment %}
 
-    <p class="custom-font mt-3 mb-2">Read more about <b><a href="#" id="link-to-framework"
+    <p class="custom-font mt-2 mb-2">Read more about <b><a href="#" id="link-to-framework"
                                                               class="text-blue-500 hover:underline">OnlyWorlds</a></b></p>
 
-    <p class="custom-font mb-2">Try the <b><a
+    <p class="custom-font mb-2">Try the current <b><a
             href="#" id="link-to-apps"
-            class="text-blue-500 hover:underline">Applications</a></b>
+            class="text-blue-500 hover:underline">applications</a></b>, starting with mobile below
     </p>
-   <p class="custom-font mb-3">Give some <b> <a href="https://forms.gle/W618BZguPaRDyj6S7"
-           class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
-           rel="noopener noreferrer">feedback</a></b>
-    </p>
+
 {% comment %}      <p class="mb-2">Or in the <b> <a href="https://discord.gg/twCjqvVBwb"
            class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
            rel="noopener noreferrer">Discord Server</a></b></p>{% endcomment %}
 
     <div class="flex flex-row items-center gap-4 mt-2">
+          <p class="custom-font mb-3">Provide feedback through <b> <a href="https://forms.gle/W618BZguPaRDyj6S7"
+           class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
+           rel="noopener noreferrer">this form</a></b> or Discord</p>
             <a href="https://discord.gg/twCjqvVBwb" class="inline-block">
         <img src="{% static 'img/discordlogo.png' %}" alt="Join the Discord" class="mb-2 w-6">
     </a>
 
     </div>
     </div>
-    <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Companion App</h3>
+{% comment %}    <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Companion App</h3>{% endcomment %}
 
 
 
@@ -52,25 +53,33 @@
 
 
 
-     <div class="flex flex-row items-center gap-4 mt-5">
-       <a href="https://drive.google.com/file/d/1UwQ5pwH5zHQRQYIeKZJmvSYKve13BxjQ/view?usp=sharing" target="_blank"
+
+
+<div class="flex flex-row items-center gap-4 mt-5">
+       <a href="https://play.google.com/store/apps/details?id=com.onlyworlds.onlyworlds" target="_blank"
        rel="noopener noreferrer">
         <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 32px; width: auto;">
     </a>
-        <p class="custom-font ml-2">Android (APK)</p>
+        <p class="custom-font ml-2">Android (mobile link)</p>
     </div>
 
-    <div class="flex flex-row items-center gap-4 mb-7 mt-5">
-       <a href="https://play.google.com/apps/internaltest/4700705784602434522" target="_blank"
+    <div class="flex flex-row items-center gap-4  mt-5">
+       <a href="https://play.google.com/apps/testing/com.onlyworlds.onlyworlds" target="_blank"
        rel="noopener noreferrer">
         <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 32px; width: auto;">
     </a>
-        <p class="custom-font ml-2">Android (Google Play, requires invite)</p>
+        <p class="custom-font ml-2">Android (desktop link for remote install to mobile)</p>
+    </div>
+  <div class="flex flex-row items-center gap-4 mt-5">
+       <a href="https://drive.google.com/file/d/1-hfXXDDdAM0XqpBRG8wJAnKEPNNKuHGl/view?usp=sharing" target="_blank"
+       rel="noopener noreferrer">
+        <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 32px; width: auto;">
+    </a>
+        <p class="custom-font ml-2">Android (APK file for manual install)</p>
     </div>
 
 
-
-    <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Explorer</h3>
+ {% comment %}   <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Explorer</h3>
 
    <p class="custom-font mt-2 mb-2"><b>  <a href="{% url 'explorer' %}"
                class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
@@ -90,7 +99,7 @@
  <p class="custom-font mt-2 mb-2"><b> <a href="https://github.com/tmoosting/OnlyWorldsEngine"
                class="inline-block text-m font-bold text-blue-500 hover:underline" target="_blank"
                rel="noopener noreferrer">GitHub</a></b>
-    </p>
+    </p>{% endcomment %}
     {% comment %}    <div class="flex flex-row items-center gap-4 mt-4">
         <a href="https://testflight.apple.com/join/bXvUExCL" target="_blank" rel="noopener noreferrer">
             <img src="{% static 'img/icon-apple.png' %}" alt="iOS Testflight" style="height: 32px; width: auto;">
