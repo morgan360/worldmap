@@ -16,7 +16,7 @@ from django import forms
 
 
 class CustomContactForm(forms.Form):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'Email'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'Your Email'}))
     message = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Message',
     }), required=True)
