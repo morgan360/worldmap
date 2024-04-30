@@ -55,22 +55,24 @@
 
 
 
-<div class="flex flex-row items-center gap-2 mt-5">
-       <a href="https://play.google.com/store/apps/details?id=com.onlyworlds.onlyworlds" target="_blank"
-       rel="noopener noreferrer">
-        <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 32px; width: auto;">
-    </a>
-        <p class="custom-font ml-2">Android (mobile link)</p>
-    </div>
+
 
     <div class="flex flex-row items-center gap-2  mt-5">
        <a href="https://play.google.com/apps/testing/com.onlyworlds.onlyworlds" target="_blank"
        rel="noopener noreferrer">
         <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 32px; width: auto;">
     </a>
-        <p class="custom-font ml-2">Android (desktop link for remote mobile install)</p>
+        <p class="custom-font ml-2">Android (Google Play Closed Testing: join <b><a
+            href="https://groups.google.com/g/ow-alpha-test"
+            class="text-blue-500 hover:underline">this Google Group</a></b> to access)</p>
     </div>
-
+<div class="flex flex-row items-center gap-2 mt-5">
+       <a href="https://drive.google.com/file/d/1-hfXXDDdAM0XqpBRG8wJAnKEPNNKuHGl/view?usp=sharing" target="_blank"
+       rel="noopener noreferrer">
+        <img src="{% static 'img/icon-google.png' %}" alt="Android APK" style="height: 32px; width: auto;">
+    </a>
+        <p class="custom-font ml-2">Android (APK file for manual install)</p>
+    </div>
  {% comment %}   <h3 class="custom-font text-custom-xl md:text-2xl lg:text-3xl">Explorer</h3>
 
    <p class="custom-font mt-2 mb-2"><b>  <a href="{% url 'explorer' %}"
