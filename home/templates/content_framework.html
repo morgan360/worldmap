@@ -135,7 +135,7 @@
     </div>
 </div>
 
-
+{% comment %}
 <div class="custom-font mb-4" id="accordion-collapse3" data-accordion="collapse">
     <button type="button"
             class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
@@ -177,9 +177,9 @@
             <li>World export and saving needs rework, ETA late May 2024</li>
         </ul>
     </div>
-</div>
+</div>{% endcomment %}
 
-{% comment %}<div class="custom-font mb-4" id="accordion-collapse5" data-accordion="collapse">
+<div class="custom-font mb-4" id="accordion-collapse5" data-accordion="collapse">
     <button type="button"
             class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
             data-accordion-target="#accordion-collapse-body-5" aria-expanded="false"
@@ -193,14 +193,22 @@
 
     <div id="accordion-collapse-body-5" class="hidden no-background" aria-labelledby="accordion-collapse-heading-5">
 
-            <p class="custom-font mb-2">18-04-2024 Version 0.16.00</p>
+                   <p class="custom-font mb-2">17-05-2024 </p>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>Added a For Developers section, below</li>
+            <li>Continued work on Explorer field editing, new build ETA 22-05</li>
+            <li>Worked on Companion app user feedback changes, new version ETA 21-05</li>
+        </ul>
+        <br>
+
+            <p class="custom-font mb-2">28-04-2024 Version 0.16.00</p>
         <ul class="custom-font accordion-content accordion-list-item">
             <li>iOs / android release fixes</li>
             <li>progression complete</li>
             <li>AI work remains: parser mode, query creation</li>
         </ul>
         <br>
-        <p class=
+
         <p class="custom-font mb-2">18-04-2024 Version 0.15.10</p>
         <ul class="custom-font accordion-content accordion-list-item">
             <li>iOs / android stable</li>
@@ -215,8 +223,59 @@
             <li>fixing and finishing progression</li>
         </ul>
     </div>
-</div>{% endcomment %}
+</div>
 
+
+<div class="custom-font mb-4" id="accordion-collapse6" data-accordion="collapse">
+    <button type="button"
+            class="text-blue-500 text-2xl font-bold rounded-lg px-1 py-3 text-left inline-flex items-center w-full justify-between"
+            data-accordion-target="#accordion-collapse-body-6" aria-expanded="false"
+            aria-controls="accordion-collapse-body-6">
+        For Developers
+        <svg data-accordion-icon class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+
+    <div id="accordion-collapse-body-6" class="hidden no-background" aria-labelledby="accordion-collapse-heading-6">
+
+             <p class="custom-font">OnlyWorlds intends to provide the definitions and infrastructure for a common file structure that any
+            developer is welcome to integrate or otherwise support in their tooling, for any commercial model.
+                 <br>
+                 <br>
+            An open source repository is in the process of being set up, and will be launched together with the framework changes
+                 that result from feedback in this closed round.
+                 <br>
+            ETA is late summer 2024. I can give no guarantees on exact data structures, but JSON is likely to remain a primary transfer format.
+                 <br>
+                 <br>
+                 The current JSON structure includes</p>
+                     <ul class="custom-font accordion-content accordion-list-item">
+            <li>A header for each category, followed by a list of elements of that category</li>
+            <li>A 'World' header, followed by world metadata</li>
+            <li>'Progression' and 'Rewards' headers, only relevant to the mobile app at this time</li>
+        </ul>
+         <br>
+
+        For development reference please see  <b> <a href="https://drive.google.com/file/d/1Z7yG3hsp2_Fd0_YCMVWY_CEV6HCR823_/view?usp=sharing"
+           class="inline-block font-bold text-blue-500 hover:underline" target="_blank"
+           rel="noopener noreferrer">this world file</a></b>, which additionally has a 'WorldTyping' table that has static
+        data: short descriptors for each Category and, more importantly, the groups-and-fields for each Category.
+        <br>
+        <br>
+        This file does not have all necessary information. Meta properties of the fields (is it a single-link, multi-link, max-number, ..)
+        I have currently defined in the apps themselves, and this will also be formalized and accessible in the open source release.
+        <br>
+        <br>
+        I hope that what I do present at this time is enough to theorize or experiment how it might work for you as a developer.
+        <br>
+        If you have any thoughts or perspectives on what you would want/need in infrastructure, or functionality,
+        or data structure, or anything else, I would be very happy to hear it.
+
+
+    </div>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
