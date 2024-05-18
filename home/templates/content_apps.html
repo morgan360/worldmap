@@ -65,6 +65,14 @@
             viewer, tap the APK file to install</li>
         </ul>
 <br>
+          <p class="custom-font">Disclaimers:</p>
+        <ul class="custom-font accordion-content accordion-list-item">
+            <li>This app is not a professional or final product</li>
+            <li>It stores world data locally, and I recommend to export any work you do to clipboard and to the server</li>
+            <li>Updating the app to a new version can cause issues and require a reinstall </li>
+
+        </ul>
+<br>
         <p class="custom-font">Known bugs and limitations:</p>
         <ul class="custom-font accordion-content accordion-list-item">
             <li>Number fields only hold positive integer values at this time</li>
@@ -88,18 +96,40 @@
     </button>
     <div id="accordion-collapsee-body-13" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-13">
 
-        <p class="custom-font mt-0 mb-1">Lets you view and (soon) edit elements through a <b><a href="{% url 'explorer' %}"
+        <p class="custom-font mt-0 mb-1">Lets you view and edit elements on a desktop device.
+        </p>
+        <br>
+
+            <a href="{% static 'img/explorer.png' %}" target="_blank" style="width: 80px;" class="inline-block mb-3">
+            <img src="{% static 'img/explorer.png' %}" alt="Explorer Preview" style="width: 650px"
+                 class="cursor-pointer">
+        </a>
+
+        <br>
+ <b><a href="{% url 'explorer' %}"
                                                                                 class="inline-block text-m font-bold text-blue-500 hover:underline"
                                                                                 target="_blank"
-                                                                                rel="noopener noreferrer">web
-            Interface</a></b>.
-        </p>
-        <p class="custom-font mb-1"><b> <a href="https://drive.google.com/file/d/1xdFjh9Jbo5KaEIS7Ev86x8FhVSp4i6zQ/view?usp=sharing"
+                                                                                rel="noopener noreferrer">Web
+            Interface</a></b>
+        <br>
+
+        <p class="custom-font mb-1"><b> <a href="https://drive.google.com/file/d/1J_LQYNgiQqkVqaDACue8P6h0THBKIR1q/view?usp=sharing"
                                                        class="inline-block text-m font-bold text-blue-500 hover:underline"
                                                        target="_blank"
-                                                       rel="noopener noreferrer">Desktop executable</a></b> version (windows).
-
-        <p class="custom-font mb-1">Build a world in the mobile app first, export it, then import it in Explorer with the world key.</p>
+                                                       rel="noopener noreferrer">Windows executable</a></b>
+<br>
+        <br>
+        <p class="custom-font mb-1">
+                Enter the key in the top left field, click Fetch, then world elements are shown. Click any of them to view and edit their fields.
+       <br>
+       <br>
+        Development on this is ongoing.
+        <br>
+        You can not yet create a new world with it,
+        but you can import world data that you have exported through the app, to allow typing and pasting into element fields.
+        <br>
+        Element values are updated in-memory as you type, but
+        make sure to press Send directly after making changes. There is no undo function or other rich text functionality in place yet.</p>
 
 
     </div>
@@ -117,8 +147,11 @@
     </button>
 
     <div id="accordion-collapsee-body-12" class="hidden no-background" aria-labelledby="accordion-collapsee-heading-12">
-        <p class="custom-font mb-1">Unity project developed in 2023 as an overall world engine, now being reworked to
-            support current framework. Requires a Unity install, but no Unity knowledge. </p>
+        <p class="custom-font mb-1">World management tool built as a complete wrapper for the Unity editor:
+            requires a Unity install, but no Unity knowledge.
+        This is an older project that requires some rework towards latest standard to allow stable exporting (import does work).
+        Primarily useful now as a map-pin-system prototype.
+        </p>
 
         <p class="custom-font mt-2 mb-2">Files and setup guide on <b><a href="https://github.com/tmoosting/OnlyWorldsEngine"
                                                 class="inline-block text-m font-bold text-blue-500 hover:underline"
