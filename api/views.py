@@ -28,7 +28,7 @@ class WorldDataView(APIView):
             data_file = ContentFile(worldDataStr.encode(), name=f"{worldKey}.json")
 
             # Try to get the existing object, or None
-            world_data_obj, created = WorldData.objects.get_or_create(
+            world_data_obj, created = WorldData.objects.update_or_create(
                 worldKey=worldKey,
                 defaults={'dataFile': data_file}
             )
