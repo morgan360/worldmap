@@ -18,12 +18,6 @@ class WorldDataView(APIView):
     def post(self, request, *args, **kwargs):
         serializer = WorldDataSerializer(data=request.data)
         if serializer.is_valid():
-            # Validation passed
-            print("Data is valid", serializer.validated_data)
-        else:
-            # Validation failed
-            print("Validation failed", serializer.errors)
-        if serializer.is_valid():
             worldKey = serializer.validated_data['worldKey']
             worldData = serializer.validated_data['worldData']
 
@@ -31,13 +25,18 @@ class WorldDataView(APIView):
             worldDataStr = json.dumps(worldData)
             data_file = ContentFile(worldDataStr.encode(), name=f"{worldKey}.json")
 
-            # Create or update the WorldData object
-            world_data_obj, created = WorldData.objects.update_or_create(
+            # Try to get the existing object, or None
+            world_data_obj, created = WorldData.objects.get_or_create(
                 worldKey=worldKey,
                 defaults={'dataFile': data_file}
             )
 
-            return JsonResponse({"message": "World data saved successfully", "worldKey": worldKey})
+            if not created:
+                # If the object was not created, it means it already existed, and we just need to update
+                world_data_obj.dataFile = data_file
+                world_data_obj.save()
+
+            return JsonResponse({"message": "World data saved successfully", "worldKey": worldKey, "created": created})
         else:
             return JsonResponse(serializer.errors, status=400)
 
