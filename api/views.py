@@ -16,7 +16,9 @@ from rest_framework.decorators import api_view, permission_classes
 
 class WorldDataView(APIView):
     def post(self, request, *args, **kwargs):
+
         serializer = WorldDataSerializer(data=request.data)
+        print("POSTTT " + serializer.is_valid())  # Log to confirm activation
         if serializer.is_valid():
             worldKey = serializer.validated_data['worldKey']
             worldData = serializer.validated_data['worldData']
