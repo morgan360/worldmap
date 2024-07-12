@@ -19,6 +19,10 @@ class WorldDataView(APIView):
         print("POSTING")
         serializer = WorldDataSerializer(data=request.data)
         if serializer.is_valid():
+            print("VALID ")
+        else:
+            print("NOT VALID ")
+        if serializer.is_valid():
             worldKey = serializer.validated_data['worldKey']
             worldData = serializer.validated_data['worldData']
 
