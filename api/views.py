@@ -18,6 +18,12 @@ class WorldDataView(APIView):
     def post(self, request, *args, **kwargs):
 
         serializer = WorldDataSerializer(data=request.data)
+
+        if serializer.is_valid():
+            print("POST: VALID")
+        else:
+            print("POST: NOT VALID")
+
         if serializer.is_valid():
             worldKey = serializer.validated_data['worldKey']
             worldData = serializer.validated_data['worldData']
