@@ -15,30 +15,24 @@ from rest_framework.decorators import api_view, permission_classes
 
 
 class WorldDataView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request, *args, **kwargs):
-        print("POSTING")
         serializer = WorldDataSerializer(data=request.data)
-        if serializer.is_valid():
-            print("VALID ")
-        else:
-            print("NOT VALID ")
         if serializer.is_valid():
             worldKey = serializer.validated_data['worldKey']
             worldData = serializer.validated_data['worldData']
 
-            # Convert the worldData dictionary to a JSON string
-            worldDataStr = json.dumps(worldData)
-            data_file = ContentFile(worldDataStr.encode(), name=f"{worldKey}.json")
-
-            # Create or update the WorldData object
             world_data_obj, created = WorldData.objects.update_or_create(
                 worldKey=worldKey,
-                defaults={'dataFile': data_file}
+                owner=request.user,
+                defaults={'dataFile': ContentFile(json.dumps(worldData).encode(), name=f"{worldKey}.json")}
             )
 
             return JsonResponse({"message": "World data saved successfully", "worldKey": worldKey})
         else:
             return JsonResponse(serializer.errors, status=400)
+
 
 
 def serve_world_data_file(request, world_key):

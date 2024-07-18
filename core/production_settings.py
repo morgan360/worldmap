@@ -9,7 +9,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tmo$worlddata',
         'USER': 'tmo',
-        'PASSWORD': 'onlyworlds',
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Pulls the password from the .env file
         'HOST': 'tmo.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
@@ -17,7 +17,14 @@ DATABASES = {
 
 DEBUG = False
 ALLOWED_HOSTS = ['privacypolicy.onlyworlds.com', 'www.onlyworlds.com']
-
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '100/day'
+    }
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
